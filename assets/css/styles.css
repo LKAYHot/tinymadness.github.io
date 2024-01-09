@@ -10,7 +10,7 @@
 /* ======= Base ======= */
 body {
   font-family: 'Lato', arial, sans-serif;
-  color: #ffffff;
+  color: #c45858;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -85,13 +85,13 @@ pre code {
 .header {
   padding: 10px 20;
   padding-left: 40px;
-  background: #040c14;
+  background: #03161d;
   color: #fff;
   position: fixed;
   width: 100%;
 }
 .header.navbar-fixed-top {
-  background: #040c14;
+  background: #01090c;
   z-index: 99929;
 
 }
@@ -173,15 +173,11 @@ pre code {
 
 
 .promo {
-  background-image: url('https://cdn.discordapp.com/attachments/941429661316042802/1194372065483047022/sdfdsdsr.jpg?ex=65b01caa&is=659da7aa&hm=04f3a78f99855fc3f5edb7fb02e09aa8d3920278f07f15e636711ae9c8573fb1&'); /* Замените 'assets/images/background.jpg' на путь к вашей картинке */
-  background-size: cover;
-  background-position: center;
-  background-color: #000000;
+  background: #01090c73;
   color: #fff;
-  padding-top: 450px;
+  padding-top: 420px;
   padding-left: 10px;
 }
-
 .promo .title {
   font-size: 120px;
   color: #ffffff;
@@ -199,7 +195,6 @@ pre code {
     transform: translateY(-10px);
   }
 }
-
 
 
 
@@ -258,11 +253,10 @@ pre code {
   z-index: -1;
   object-fit: cover; /* Масштабирование видео, чтобы заполнить контейнер без искажений */
 }
-
 /* ======= About Section ======= */
 .about {
   padding: 80px 0;
-  background: #040c14;
+  background: #000304;
 }
 .about .title {
   color: #074f66;
@@ -285,7 +279,7 @@ pre code {
 }
 .about .item .icon-holder .fa {
   font-size: 24px;
-  color: #09bcf8;
+  color: #074f66;
 }
 .about .item .content {
   padding-left: 60px;
@@ -296,144 +290,30 @@ pre code {
   font-size: 18px;
 }
 
-.about .sub-title {
-  color: white;
-  font-size: 40px;
+/* ======= Features Section ======= */
+.features {
+  padding: 80px 0;
+  background: #252525;
+  color: #fff;
 }
-
-
-.square {
-  width: 100%;
-  height: 180px; /* Выберите желаемую высоту квадратов */
-  background-color: #071727; /* Цвет фона */
-  border-radius: 10px; /* Закругление углов */
-  padding: 20px; /* Отступы внутри квадрата */
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 20px;
-}
-
-.square:hover {
-  transform: scale(1.05); /* Масштабирование при наведении */
-}
-
-.square h3 {
+.features .title {
+  color: #074f66;
   margin-top: 0;
-  font-size: 24px; /* Размер шрифта для заголовка */
+  margin-bottom: 30px;
 }
-
-.square p {
-  font-size: 16px; /* Размер шрифта для текста */
+.features a {
+  color: #074f66;
 }
-
-.plotpercent {
-  font-size: 19px !important;
-  color: #f8545d;
+.features a:hover {
+  color: #042a36;
 }
-
-.progressstatusplot {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
+.features .feature-list li {
+  margin-bottom: 10px;
+  color: #074f66;
 }
-
-.progress-barstatusplot {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatusplot::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillsecondbar 1s linear forwards;
-  border-radius: 3px;
-}
-
-.progressstatusquary {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-barstatusquary {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatusquary::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillthirdbar 0.4s linear forwards;
-  border-radius: 3px;
-}
-
-.progressstatudialog {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-barstatudialog {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatudialog::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillfourthbar 0.4s linear forwards;
-  border-radius: 3px;
-}
-
-@keyframes fillsecondbar {
-  from {
-      width: 0;
-  }
-  to {
-      width: 10%;
-  }
-}
-
-@keyframes fillthirdbar {
-  from {
-      width: 0;
-  }
-  to {
-      width: 5%;
-  }
-}
-
-@keyframes fillfourthbar {
-  from {
-      width: 0;
-  }
-  to {
-      width: 6%;
-  }
+.features .feature-list li .fa {
+  margin-right: 5px;
+  color: #fff;
 }
 
 /* ======= License Section ======= */
@@ -491,8 +371,6 @@ pre code {
   border-radius: 15px;
 }
 
-
-
 @keyframes fill {
   from {
       width: 0;
@@ -500,6 +378,143 @@ pre code {
   to {
       width: 10%;
   }
+}
+/* ======= Contact Section ======= */
+.contact {
+  padding: 80px 0;
+  background: #17baef;
+  color: #fff;
+}
+.contact .contact-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.contact .title {
+  color: #074f66;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.contact .intro {
+  margin-bottom: 60px;
+}
+.contact a {
+  color: #074f66;
+}
+.contact a:hover {
+  color: #042a36;
+}
+.contact .author-message {
+  position: relative;
+  margin-bottom: 60px;
+}
+.contact .author-message .profile {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+  width: 100px;
+  height: 100px;
+}
+.contact .author-message .profile img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.contact .author-message .speech-bubble {
+  margin-left: 155px;
+  background: #10b2e7;
+  color: #074f66;
+  padding: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+}
+.contact .author-message .speech-bubble .sub-title {
+  color: #074f66;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.contact .author-message .speech-bubble a {
+  color: #fff;
+}
+.contact .author-message .speech-bubble:after {
+  position: absolute;
+  left: -10px;
+  top: 60px;
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #10b2e7;
+}
+.contact .author-message .speech-bubble .source {
+  margin-top: 30px;
+}
+.contact .author-message .speech-bubble .source a {
+  color: #074f66;
+}
+.contact .author-message .speech-bubble .source .title {
+  color: #0c86ae;
+}
+.contact .info .sub-title {
+  color: #0e98c5;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.contact .social-icons {
+  list-style: none;
+  padding: 10px 0;
+  margin-bottom: 0;
+  display: inline-block;
+  margin: 0 auto;
+}
+.contact .social-icons li {
+  float: left;
+}
+.contact .social-icons li.last {
+  margin-right: 0;
+}
+.contact .social-icons a {
+  display: inline-block;
+  background: #0c86ae;
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  padding-top: 12px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin-right: 8px;
+  float: left;
+}
+.contact .social-icons a:hover {
+  background: #e6ad14;
+}
+.contact .social-icons a .fa {
+  color: #fff;
+}
+.contact .social-icons a .fa:before {
+  font-size: 26px;
+  text-align: center;
+  padding: 0;
 }
 /* ======= Footer ======= */
 .footer {
