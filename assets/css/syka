@@ -1,0 +1,50 @@
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const newsData = `
+                /--
+                && Абиба
+                &^ Новым руководителем ?&авпвапвапавпва =>https://www.youtube.com/watch?v=zhzyS44r91I&list=RDzhzyS44r91I&start_radio=1<=&? fdsafsdfdsfdsfsdfsdvdfffdsfdsfdsfdfsdfsdfdssdfdbdfgbfgbfgbgfbgfbgfbgfbgf
+                Жил у бабушки внук ?&ссылка на видео =>https://www.youtube.com/watch?v=zhzyS44r91I&list=RDzhzyS44r91I&start_radio=1<=&? 
+                &^ и крутой параграф 2 ?&ссылка =>https://vgtimes.ru/news/103536-neoficialnyy-perevod-igry-little-goody-two-shoes-uzhe-v-razrabotke.html<=&? и еще крутой
+                /--
+                && Абиба
+                &^ Новым руководителем ?&авпвапвапавпва =>https://www.youtube.com/watch?v=zhzyS44r91I&list=RDzhzyS44r91I&start_radio=1<=&? fdsafsdfdsfdsfsdfsdvdfffdsfdsfdsfdfsdfsdfdssdfdbdfgbfgbfgbgfbgfbgfbgfbgf
+                Жил у бабушки внук ?&ссылка на видео =>https://www.youtube.com/watch?v=zhzyS44r91I&list=RDzhzyS44r91I&start_radio=1<=&? 
+                 и крутой параграф 2 ?&ссылка =>https://vgtimes.ru/news/103536-neoficialnyy-perevod-igry-little-goody-two-shoes-uzhe-v-razrabotke.html<=&? и еще крутой
+                /--
+            `;
+    
+            const newsSections = newsData.split('/--').filter(Boolean);
+    
+            const newsContainer = document.body;
+    
+            newsSections.forEach(sectionData => {
+                const parts = sectionData.split('&&').map(str => str.trim());
+                const title = parts[0];
+                const contentParts = parts.slice(1).map(part => part.split('&^'));
+    
+                // Check if there is any content before creating the section
+                if (contentParts.length > 0 && contentParts[0][0].trim() !== "") {
+                    const content = contentParts.map(([subTitle, ...paragraphs]) => `<h3>${subTitle}</h3>${paragraphs.map(paragraph => {
+                        // Check for the presence of clickable links with hidden URLs
+                        const linkRegex = /\?&(.+?) =>(.+?)<=&\?/g;
+                        return paragraph.replace(linkRegex, (_, linkText, hiddenUrl) => {
+                            return `<a href="${hiddenUrl}" target="_blank">${linkText}</a>`;
+                        });
+                    }).join('</p><p>')}`).join('</p><p>');
+    
+                    const section = document.createElement('section');
+                    const heading = document.createElement('h2');
+                    const paragraph = document.createElement('div');
+    
+                    heading.textContent = title;
+                    paragraph.innerHTML = `<p>${content}</p>`;
+    
+                    section.appendChild(heading);
+                    section.appendChild(paragraph);
+    
+                    newsContainer.appendChild(section);
+                }
+            });
+        });
+    </script>
