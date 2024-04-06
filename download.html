@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>TinyMadness</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Здесь вы можете найти информацию о TinyMadness, а также узнать статус перевода">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="assets/images/favicon.ico">  
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/stylesdownload.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".plotpercent").each(function() {
+          var text = $(this).text();
+          var newText = text.replace(/\+(.*)/, '<span class="green">+$1</span>');
+          $(this).html(newText);
+        });
+      });
+    </script>
+</head> 
+
+<body data-spy="scroll" class="custom-scrollbar">
+    
+    <!-- ******HEADER****** --> 
+    <header id="header" class="header">  
+        <div class="container">            
+            <h1 class="logo pull-left">
+                <a class="scrollto" href="index.html">
+                    <span class="logo-title">TinyMadness</span>
+                </a>
+            </h1><!--//logo-->              
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!--//nav-toggle-->
+                </div><!--//navbar-header-->            
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active nav-item sr-only"><a class="scrollto" href="tinymadness.html">Home</a></li>
+                        <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH">Дискорд сервер</a></li>
+                        <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/channel/UCPf6yv4uhpZDRv2litaWhHA">Канал на ютубе</a></li>
+                        <li class="nav-item"><a href="news.html">Новости</a></li>
+                    </ul><!--//nav-->
+                </div><!--//navabr-collapse-->
+            </nav><!--//main-nav-->
+        </div>
+    </header><!--//header-->
+    
+    <section class="video-section section">
+        <div class="container">
+            <h2 class="title">Установка нашего перевода</h2>
+            <p class="sub-titledesc">Посмотрите видео, чтобы установить перевод игры LGTS на русский язык</p>
+    
+            <!-- Video 1 -->
+
+            <div class="video-container">
+                <iframe src="assets/images/TinyGuide1.mp4" allowfullscreen autoplay></iframe>
+            </div>
+
+            <div class="dropdown">
+                <button onclick="toggleDropdown()" class="dropdown-btn">
+                    <span id="selectedVersion">Выберите версию</span>
+                    <span class="arrow-down">&#9660;</span>
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#" onclick="changeDownloadLink('v0.0.1 Pirate')">v0.0.1 - Pirate Version</a>
+                    <a href="#" onclick="changeDownloadLink('v0.0.1 Steam')">v0.0.1 - Steam Version</a>
+                </div>
+            </div>
+    
+            <!-- Download Button -->
+            <p class="install-text">Выберите версию, которую вы хотите скачать, а потом нажмите на кнопку</p>
+            <a href="#" id="downloadButton" class="install-btn">Ожидание...</a>
+        </div>
+    </section>
+
+
+
+    <script>
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function changeDownloadLink(version) {
+            var downloadButton = document.getElementById("downloadButton");
+            document.getElementById('selectedVersion').innerText = version;
+    document.getElementById("myDropdown").classList.toggle("show");
+            if (version === 'v0.0.1 Pirate') {
+                var installBtn = document.querySelector('.install-btn');
+    installBtn.style.display = 'inline-block';
+                downloadButton.href = 'https://www.youtube.com/watch?v=Hl_Ea00NdvM'; // Add your link for version 1 here
+            } else if (version === 'v0.0.1 Steam') {
+                var installBtn = document.querySelector('.install-btn');
+    installBtn.style.display = 'inline-block';
+                downloadButton.href = 'https://www.youtube.com/watch?v=vK6D1AUUa6I'; // Add your link for version 2 here
+            }
+            downloadButton.textContent = "Скачать TinyMadnessInstaller " + version;
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.install-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+<!--//about-->
+    <!-- Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
+    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/js/main.js"></script>       
+</body>
+</html> 
