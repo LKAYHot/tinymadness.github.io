@@ -1172,6 +1172,22 @@ pre code {
 /* Extra small devices (phones, less than 768px) */
 
 
+@media (max-width: 450px) {
+  .download-btn {
+    padding: 25px;
+  }
+  .download-btn span {
+    font-size: 15px;
+  }
+  #statistics .title {
+    font-size: 45px;
+  }
+
+  #games .title {
+    font-size: 75px;
+  }
+}
+
 @media (max-width: 1200px) {
   .promo .intro {
     margin-left: 130px;
@@ -1182,7 +1198,7 @@ pre code {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .header .main-nav button {
     margin-right: 0;
   }
