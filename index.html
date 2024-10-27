@@ -120,7 +120,7 @@
                         <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
                         <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/channel/UCPf6yv4uhpZDRv2litaWhHA" data-lang="youtube">YouTube канал</a></li>
                         <li class="nav-item"><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
-                        <li class="nav-item"><a href="news.html" data-lang="news">Новости</a></li>
+                       <!-- <li class="nav-item"><a href="news.html" data-lang="news">Новости</a></li> -->
                         <li class="nav-item"><a href="javascript:void(0);" onclick="changeLanguage('ru')" data-lang="lang_ru">RU</a></li>
                         <li class="nav-item"><a href="javascript:void(0);" onclick="changeLanguage('en')" data-lang="lang_en">EN</a></li>
                     </ul><!--//nav-->
@@ -129,7 +129,7 @@
         </div>
     </header><!--//header-->
 
-    <div id="popup" class="popup">
+ <!-- <div id="popup" class="popup">
         <span class="popup-close" onclick="closePopup()">&times;</span>
         <p>Дискорд сервер может быть временно недоступен. Просим пока перейти в наш телеграм.</p>
     </div>
@@ -151,7 +151,7 @@
         document.querySelector(".popup-close").addEventListener("click", function() {
             closePopup();
         });
-    </script>
+    </script> -->
     
     <!-- ******PROMO****** -->
     <section id="promo" class="promo section offset-header">
@@ -159,11 +159,19 @@
           <!--  <video autoplay muted plays-inline loop class="bg-video">
                 <source src="assets/images/background.mp4" type="video/mp4">
             </video>  -->
-            <h2 class="title"><img src="https://i.postimg.cc/ZY38FChP/LOGO-LGTS-Dark-Background.png" alt="Little Goody Two Shoes"></a></h2>
-            <p class="intro" data-lang="promo_intro">Нажмите на эту кнопку, чтобы скачать перевод</p>
-               <div class="button-container"> 
-                    <button class="custom-button" id="downloadButton" data-lang="downloadbuttonlang">Скачать наш перевод</button>
+            <div class="container-main">
+                <div class="stack" style="--stacks: 3;">
+                  <span style="--index: 0;">TINYMADNESS</span>
+                  <span style="--index: 1;">TINYMADNESS</span>
+                  <span style="--index: 2;">TINYMADNESS</span>
                 </div>
+              </div>
+            <p class="intro" data-lang="promo_intro">Нажмите на эту кнопку, чтобы скачать перевод</p>
+            <button class="download-btn" onclick="location.href='download.html'">
+                <span>ПЕРЕЙТИ К УСТАНОВКЕ</span>
+              </button>
+
+              <button class="corner-button" onclick="location.href='12dkasdk23l2kssalc23kbvkjnsla.html'"></button>
             <ul class="meta list-inline">
                 <li><a href="" target="_blank"></a></li>
                 <li><a href="" target="_blank"></a></li>
@@ -171,36 +179,91 @@
         </div><!--//container-->
     </section><!--//promo-->
 
-    <section id="info-section" class="info-section section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <h2 class="section-title">Little Goody Two Shoes</h2>
-                    <p class="section-description">
-                        Little Goody Two Shoes - это не просто игра, это интригующая история с 10 возможными концовками. Ваши выборы и действия на протяжении всего прохождения будут напрямую влиять на то, как сложится судьба главной героини Элизы. Но помните, что сказочная атмосфера обманчива: вам придется не только решать головоломки и сражаться с монстрами, но и заботиться о повседневной жизни Элизы в деревне. Каждый ваш шаг может стать решающим.
-                    </p>
-                </div><!--//col-md-8-->
-            </div><!--//row-->
-        </div><!--//container-->
-    </section><!--//background-->
-
-        <!-- ******VIDEO****** -->
-<section id="video-section" class="video-section section">
+    <!-- ******STATISTICS****** -->
+<section id="statistics" class="statistics section">
     <div class="container">
-        <h2 class="title" data-lang="video_title">Тизер</h2>
-        <p class="sub-titledesc" data-lang="video_desc">Визуальный прогресс перевода игры LGTS</p>
-        <!-- Placeholder video, replace the link with your actual video link -->
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gUGbsHguRHk" allowfullscreen></iframe>
-        </div>
-    </div><!--//container-->
-</section><!--//new-section-->
+        <div class="row">
+            <!-- Left side: Text and Progress Bars -->
+            <div class="col-md-6">
+                <h2 class="title">Статистика</h2>
+                <p class="description">Здесь вы можете увидеть небольшую статистику перевода игры Unreal Life.</p>
+                
+                <!-- Progress Bars -->
+                <div class="progress-bar-container">
+                    <div class="progress-bar-item">
+                        <p class="progress-bar-title">Главный сюжет</p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-mask" style="--progress: 8%;">25%</div>
+                        </div>
+                        <div class="progress-bar-progress-text">8/100</div> <!-- Вынесен за пределы прогресс бара -->
+                    </div>
+                    
+                    <div class="progress-bar-item">
+                        <p class="progress-bar-title">Доп. диалоги</p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-mask" style="--progress: 5%;">50%</div>
+                        </div>
+                        <div class="progress-bar-progress-text">5/100</div>
+                    </div>
+                    
+                    <div class="progress-bar-item">
+                        <p class="progress-bar-title">Секреты</p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-mask" style="--progress: 3%;">60%</div>
+                        </div>
+                        <div class="progress-bar-progress-text">3/100</div>
+                    </div>
+                    
+                    <div class="progress-bar-item">
+                        <p class="progress-bar-title">Всего</p>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar-mask" style="--progress: 5%;">85%</div>
+                        </div>
+                        <div class="progress-bar-progress-text">5/100</div>
+                    </div>
+                </div>
+            </div>
 
-<section id="closing-info" class="closing-info section">
-    <div class="container text-center">
-        <h2 class="title">TinyMadness</h2>
+            <!-- Right side: Masked Image -->
+            <div class="col-md-6 text-center">
+                <div class="masked-image">
+                    <img src="https://indiehellzone.com/wp-content/uploads/2020/12/capture2.png?w=1024" alt="Masked Image">
+                </div>
+            </div>
+        </div><!--//row-->
     </div><!--//container-->
-</section><!--//closing-info-->
+</section><!--//statistics-->
+
+<section id="games" class="games section">
+    <div class="container">
+        <h2 class="title text-center">Игры</h2>
+        <p class="description text-center">Игры, которые находятся в переводе у TinyMadness.</p>
+
+        <div class="row game-container text-center">
+            <!-- Left Game -->
+            <div class="col-md-6 game">
+                <h3 class="game-title">LGTS</h3>
+                <p class="game-desc">Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений</p>
+                <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="image-container">
+                    <span class="status-text">Переведена</span>
+                    <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Game 1 Image">
+                </a>
+            </div>
+
+            <!-- Right Game -->
+            <div class="col-md-6 game">
+                <h3 class="game-title">Unreal Life</h3>
+                <p class="game-desc">Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.</p>
+                <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="image-container blurred">
+                    <span class="status-text">Скоро выйдет</span>
+                    <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="Game 2 Image">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="border-container"></div>
 <!--//about-->
     <!-- Javascript -->       
     

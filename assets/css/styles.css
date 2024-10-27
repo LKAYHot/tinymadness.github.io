@@ -3,6 +3,7 @@
 body {
   font-family: 'Lato', arial, sans-serif;
   color: #ffffff;
+  background-color: #020202;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -103,28 +104,285 @@ pre code {
   }
 }
 
+/* cyrillic-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tAcQCnjU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tCMQCnjU.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tD8QCnjU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tA8QCnjU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tAsQCnjU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9tDMQC.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhZdDtwG.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnh9dDtwG.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhhdDtwG.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhRdDtwG.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhVdDtwG.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqnhtdDg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnhZdDtwG.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnh9dDtwG.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnhhdDtwG.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnhRdDtwG.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnhVdDtwG.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjiiVqnhtdDg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnhZdDtwG.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnh9dDtwG.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnhhdDtwG.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+
+/* vietnamese */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnhRdDtwG.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnhVdDtwG.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/sourceserif4/v8/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtnhtdDg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #02171f;
+  background-color: rgba(2, 23, 31, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #053c4e;
+  background-color: white;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #052e3b;
-}
-
-
-:root {
-  --first-value: 22%;
-  --second-value: 11%;
-  --third-value: 20%;
+  background-color: #949494;
 }
 
 
@@ -133,7 +391,7 @@ pre code {
 .header {
   padding: 10px 20;
   padding-left: 40px;
-  background: #040c14;
+  background: #000000;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -142,7 +400,7 @@ pre code {
   z-index: 99999;
 }
 .header.navbar-fixed-top {
-  background: #040c14;
+  background: #000000;
   z-index: 99999;
 
 }
@@ -162,7 +420,7 @@ pre code {
   text-decoration: none;
 }
 .header .main-nav button {
-  background: #2a7dfa;
+  background: #030303;
   color: #fff !important;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -185,14 +443,14 @@ pre code {
 .header .main-nav .nav .nav-item {
   font-weight: bold;
   margin-right: 30px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Source Serif 4', sans-serif;
 }
 .header .main-nav .nav .nav-item.active a {
-  color: #2a7dfa;
+  color: #491811;
   background: none;
 }
 .header .main-nav .nav .nav-item a {
-  color: #0a7396;
+  color: #b92e1c;
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
@@ -201,8 +459,9 @@ pre code {
   padding: 15px 10px;
 }
 .header .main-nav .nav .nav-item a:hover {
-  color: #074f66;
-  background: none;
+  background: url('https://tinymadness.online/assets/images/mask-button.svg') no-repeat center center;
+  background-size: contain;
+  color: #f3f3f3;
 }
 .header .main-nav .nav .nav-item a:focus {
   outline: none;
@@ -222,16 +481,42 @@ pre code {
 
 /* ======= Promo Section ======= */
 
+.border-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100; /* Поверх всего контента */
+  border-width: 80px; /* Толщина рамки */
+  border-style: solid;
+  border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round; /* Изображение рамки */
+  pointer-events: none; /* Не блокировать взаимодействие с контентом */
+}
+
+.corner-button {
+  position: absolute;    
+  bottom: 10px;           
+  left: 10px;
+  width: 220px;          
+  height: 50px;
+  background: transparent; 
+  border: none;
+  cursor: pointer;
+  z-index: 101;          
+}
+
 
 .promo {
-  background-image: url('https://i.postimg.cc/BvSTdfPm/her2332o-bg-WZk5-Tq-Sm-E.png'); /* Замените 'assets/images/background.jpg' на путь к вашей картинке */
   background-size: cover;
   background-position: center;
-  background-color: #000000;
+  background-image: url('https://tinymadness.online/assets/images/effectglitch1.gif');
+  background-color: #120d0d;
   color: #fff;
-  padding-top: 450px;
-  padding-left: 10px;
-  position: relative;
+  display: flex;
+  justify-content: center;  
+  align-items: center;     
+  height: 100vh;           
 }
 
 .promo::before {
@@ -244,20 +529,81 @@ pre code {
   background-image: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 10%); /* Изменено на 180deg для направления с верху вниз */
 }
 
-.promo .title {
-  font-size: 120px;
-  margin-top: -300px;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 1s cubic-bezier(0.67, -0.14, 0, 1.72) forwards;
+.container-main {
+  color: var(--color);
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.promo .title img {
-  position: relative;
-  overflow: hidden;
-  margin-left: 25px;
-  height: auto;
-  animation: fadeIn 1s cubic-bezier(0.67, -0.14, 0, 1.72) forwards;
+.stack {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.stack span {
+  font-weight: bold;
+  font-family: 'Source Serif 4', sans-serif;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 12rem;
+  
+  /* Высчитываем высоту стеков */
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  
+  /* Определяем обрезку текста */
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  
+  /* Анимации стека и глитча */
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), 
+             glitch 2s ease infinite 2s alternate-reverse;
+}
+
+/* Глитч для каждого четного и нечетного элемента */
+.stack span:nth-child(odd) {
+  --glitch-translate: 8px;
+}
+.stack span:nth-child(even) {
+  --glitch-translate: -8px;
+}
+
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+  }
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%, 100% {
+    text-shadow: none;
+    transform: none;
+  }
 }
 
 @keyframes animate {
@@ -316,8 +662,10 @@ pre code {
   color: #eebf3f;
 }
 .promo .intro {
-  font-size: 28px;
+  font-size: 25px;
+  font-family: 'Source Serif 4', sans-serif;
   max-width: 680px;
+  color: #a7a7a7;
   margin: 0 auto;
   margin-bottom: 30px;
   margin-left: 220px;
@@ -328,6 +676,52 @@ pre code {
   font-size: 24px;
   padding: 6px 140px;
 }
+
+.download-btn {
+  display: inline-block;
+  font-family: 'Source Serif 4', sans-serif;
+  font-weight: bold;
+  position: relative;
+  background: url('https://tinymadness.online/assets/images/mask-button.svg') no-repeat center center;
+  background-size: cover; /* Картинка фоном заполняет кнопку */
+  padding: 45px 75px; /* Убираем padding, чтобы button следовал за размерами фона */
+  width: auto;
+  height: auto;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out; /* Анимация при наведении */
+}
+
+.download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url('https://tinymadness.online/assets/images/mask-button.svg'); /* Используем SVG как маску */
+  mask-size: cover;
+  mask-position: center;
+  background-color: rgba(0, 0, 0, 0); /* Изначально прозрачный */
+  transition: background-color 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.download-btn span {
+  position: relative;
+  z-index: 2; /* Текст поверх затемнения */
+  color: #fff;
+  font-size: 25px;
+  padding: 15px 30px;
+}
+
+/* Эффект затемнения по контуру при наведении */
+.download-btn:hover::before {
+  background-color: rgba(0, 0, 0, 0.3); /* Затемнение по контуру */
+}
+
+
 .promo .meta {
   margin-top: 120px;
   margin-bottom: 30px;
@@ -370,168 +764,6 @@ pre code {
 }
 
 
-.progress {
-  height: 50px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-  animation: levitate 1.8s infinite alternate;
-}
-
-.progress-bar {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
- .custom-button {
-  background-color: #007bff; 
-  border: none; 
-  color: white; 
-  padding: 10px 65px;
-  text-align: center; 
-  text-decoration: none;
-  display: inline-block;
-  font-size: 30px; 
-  cursor: pointer; 
-  border-radius: 8px; 
-  overflow: hidden;
-  position: relative;
-  margin-left: -20px;
-  animation: fadeIn 1s cubic-bezier(0.67, -0.14, 0, 1.72) forwards;
-  transition: transform 0.1s; 
-} 
-
- .custom-button::before {
-  width: 0;
-  height: 0;
-  top: 50%;
-  left: 50%;
-  content: '';
-  position: absolute;
-} 
-
-.custom-button:hover::before {
-  top: 50%;
-  left: 10%;
-  width: 300%;
-  height: 300%;
-  background-color: rgba(31, 86, 206, 0.2);
-  border-radius: 50%;
-  transform: translate(-20%, -70%);
-  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
-}
-
-.custom-button:hover {
-  transform: scale(1.1);
-}
-
-/* Если вы хотите добавить анимацию */
-.progress-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fill 0.5s cubic-bezier(0.65, -0.24, 0.05, 1.59) forwards;
-  border-radius: 3px;
-}
-
-
-
-.chart {
-  display: flex;
-  justify-content: space-between; /* Равномерное распределение столбцов по горизонтали */
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-/* Стили для столбцов */
-.bar {
-  width: 33%; /* 100% / 4 столбца + небольшой зазор */
-  height: 200px; /* Поменяйте высоту столбцов по вашему усмотрению */
-  margin: 5px;
-  background-color: #071727; /* Цвет фона столбцов */
-  border-radius: 5px;
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  overflow: hidden; /* Обрезаем содержимое, если оно выходит за границы */
-}
-
-.bar:hover {
-  transform: scale(1.05); /* Масштабирование при наведении */
-}
-
-/* Стили для текста внутри столбцов */
-.bar .label {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-}
-
-/* Стили для заполнения столбцов */
-.bar .fill {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-}
-
-/* Стили для отображения значений */
-.bar .value {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff; /* Цвет значения */
-}
-
-.card {
-  width: 100%;
-  max-width: 1500px;
-  padding: 15px;
-
-  position: relative;
-}
-
-.apexcharts-tooltip {
-  background-color: #0d1dfd;
-  color: rgb(42, 92, 255);
-}
-
-.card::before,
-.card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-}
-
-
-.card::after {
-  z-index: 2;
-  background-color: #071727;
-}
-
-.card-content {
-  position: relative;
-  z-index: 3;
-}
-
-
-
 /* 10 6 7*/
 
 @keyframes fill {
@@ -543,42 +775,284 @@ pre code {
   }
 }
 
-
-
-
-.info-section {
-  background-image: url('https://i.postimg.cc/wT7QRVyq/bg1.webp');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: #000000; /* Цвет фона */
-  padding: 80px 0; /* Отступы сверху и снизу */
-  position: relative;
+#statistics {
+  padding: 60px 0;
+  background-color: #080d18;
+  border-width: 150px; /* Толщина рамки */
+  border-style: solid;
+  border-color: #05afe7;
+  border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round;
 }
 
-.info-section::before {
-  content: '';
-  position: absolute;
-  top: 0; /* Изменено на top: 0; чтобы начинать с верха */
-  left: 0;
+#statistics .title {
+  font-size: 65px;
+  margin-bottom: 20px;
+  color: white;
+  font-family: 'Source Serif 4', sans-serif;
+  font-weight: bold;
+}
+
+#statistics .description {
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+.progress-bar-item {
+  display: flex;
+  flex-direction: column; /* Столбик для заголовка сверху */
+  gap: 10px; /* Отступ между заголовком и прогресс-баром */
+  margin-bottom: 30px; /* Отступ между блоками прогресс-баров */
+}
+
+.progress-bar-progress-text {
+  align-self: flex-end; /* Выравнивание справа */
+  margin-top: -60px; /* Поднятие текста на уровень прогресс-бара */
+  margin-right: 10px;
+  color: #2b95f8;
+  font-family: 'Source Serif 4', sans-serif;
+  font-size: 20px;
+}
+
+/* Progress Bar Styles */
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progress-bar-title {
+  font-family: 'Source Serif 4', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+  color: #1d7ce9; /* Цвет текста */
+}
+
+.progress-bar-progress {
+  font-family: 'Source Serif 4', sans-serif;
+  font-size: 25px;
+  margin-left: 20px;
+  color: #ffffff;
+}
+
+
+.progress-bar-wrapper {
+  position: relative;
   width: 100%;
-  height: 100%; /* Высота, на которую будет применен градиент */
-  background-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0) 10%); /* Изменено на 180deg для направления с верху вниз */
+  height: 70px;
+  flex-grow: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(38, 48, 83);
+  -webkit-mask-image: url('https://tinymadness.online/assets/images/mask-line.svg');
+  mask-image: url('https://tinymadness.online/assets/images/mask-line.svg');
+  mask-repeat: no-repeat;
+  mask-size: 100% 7%;
+  overflow: hidden;
 }
 
-.info-section .section-title {
-  font-size: 100px; 
-  font-weight: 700; 
-  color: #ffffff; 
-  margin-bottom: 30px; 
+.progress-bar-mask {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 0;
+  left: 0;
+  width: var(--progress); /* Динамическая ширина */
+  height: 100%;
+  background-color: #2271d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  mask-image: linear-gradient(to right, black 50%, transparent 100%);
+}
+
+/* Right-side Image with Mask */
+.masked-image {
+  width: 140%;
+  height: 700px;
+  background-color: transparent;
+  background: no-repeat;
+  mask-image: url('https://tinymadness.online/assets/images/mask-block-2.svg'); /* Mask for the image */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+.masked-image .red {
+  filter: url(#alphaRed);
+  mix-blend-mode: lighten;
+}
+.masked-image .green {
+  filter: url(#alphaGreen);
+  mix-blend-mode: lighten;
+}
+.masked-image .blue {
+  filter: url(#alphaBlue);
+  mix-blend-mode: lighten;
+}
+
+.masked-image:hover {
+  --time: 0.3s;
+}
+
+.masked-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1400px) {
+  .masked-image {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 768px) {
+  .masked-image {
+    width: 100%; /* Ещё меньше на планшетах */
+      margin-top: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .masked-image {
+      max-width: 100%; /* На мобильных устройствах ширина 100% от экрана */
+      margin-top: -20px;
+  }
+}
+
+
+
+#games {
+  padding: 0;
+  justify-content: center;
+  justify-self: center;
+  background-color: #080d18;
+  border-width: 150px; /* Толщина рамки */
+  border-style: solid;
+  border-color: #05afe7;
+  border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round;
+}
+
+#games .title {
+  font-size: 140px;
+  margin-bottom: 30px;
+  color: rgb(247, 64, 31);
+  font-family: 'Source Serif 4', sans-serif;
+  font-weight: bold;
+  justify-self: center;
+}
+
+#games .description {
+  font-size: 35px;
+  margin-bottom: 25px;
+  font-family: 'Source Serif 4', sans-serif;
+}
+
+/* Game container styles */
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Добавлено для поддержки переноса элементов на меньших экранах */
+  gap: 20px; /* Отступ между блоками */
+  transition: gap 0.3s ease-in-out;
+}
+
+.game {
   position: relative;
+  text-align: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
 }
 
-.info-section .section-description {
-  font-size:25px; /* Размер описания */
-  line-height: 1.6; /* Межстрочный интервал */
-  color: #ffffff; /* Цвет текста */
+.game-title {
+  font-size: 50px;
+  font-family: 'Source Serif 4', sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: rgb(247, 64, 31);
+  transition: transform 0.3s ease-in-out;
 }
+
+.game-desc {
+  font-size: 25px;
+  font-family: 'Source Serif 4', sans-serif;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  justify-content: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  mask-image: url('https://tinymadness.online/assets/images/mask-block-2.svg'); /* Mask for the image */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container .status-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Source Serif 4', sans-serif;
+  font-weight: bold;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  mask-image: url('https://tinymadness.online/assets/images/mask-block-2.svg'); /* Mask for the image */
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 25px;
+  z-index: 2;
+  transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+/* Blur effect for the right image */
+.image-container.blurred img {
+  filter: blur(5px);
+}
+
+.game:hover {
+  transform: scale(1.1); /* Увеличивает контейнер на 5% при наведении */
+}
+
+.game:hover .image-container img {
+  transform: scale(1.05); /* Увеличивает изображение на 10% при наведении */
+  cursor:pointer;
+}
+
+/* Hover effect for status text */
+.image-container:hover .status-text {
+  transform: translate(-50%, -50%) scale(1.2); /* Сохраняем текст по центру, но увеличиваем */
+  font-size: 20px;
+}
+
+/* Hover effect for moving up titles and description */
+.game:hover .game-title,
+.game:hover .game-desc {
+  transform: translateY(-30px); /* Смещает элементы вверх на 10px */
+}
+
+.game-container:hover {
+  gap: 60px; /* Увеличение gap до 40px при наведении */
+}
+
 
 /* ======= New Section ======= */
 .video-section {
@@ -655,141 +1129,8 @@ pre code {
   color: green !important;
 }
 
-.progressstatusplot {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-barstatusplot {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatusplot::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillsecondbar 1s cubic-bezier(0.65, -0.24, 0.05, 1.59) forwards;
-  border-radius: 3px;
-}
-
-.progressstatusquary {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-barstatusquary {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatusquary::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillthirdbar 0.9s cubic-bezier(0.65, -0.24, 0.05, 1.59) forwards;
-  border-radius: 3px;
-}
-
-.progressstatudialog {
-  height: 30px;
-  background-color: #121e30;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progress-barstatudialog {
-  height: 100%;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
-}
-
-.progress-barstatudialog::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(90deg, rgb(248, 67, 97) 0%, rgb(153, 22, 83) 100%);
-  animation: fillfourthbar 1.2s cubic-bezier(0.65, -0.24, 0.05, 1.59) forwards;
-  border-radius: 3px;
-}
-
-@keyframes fillsecondbar {
-  from {
-      width: 0;
-  }
-  to {
-     width: var(--first-value);
-  }
-}
-
-@keyframes fillthirdbar {
-  from {
-      width: 0;
-  }
-  to {
-     width: var(--second-value);
-  }
-}
-
-@keyframes fillfourthbar {
-  from {
-      width: 0;
-  }
-  to {
-    width: var(--third-value);
-  }
-}
-
-/* ======= License Section ======= */
-.license {
-  padding: 80px 0;
-  background: #01090c;
-}
-.license .title {
-  margin-top: 0;
-  margin-bottom: 60px;
-  color: #074f66;
-}
-
-.progress-bar-section {
-  text-align: center;
-  padding: 50px 0;
-}
-
-.progress-bar-inner {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-
 /* ======= Closing Info ======= */
 .closing-info {
-  margin-top: -70px;
   z-index: 1;
   text-align: bottom;
   padding: 10px 0;
@@ -849,6 +1190,28 @@ pre code {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  .stack span {
+    font-size: 7rem;
+  }
+
+  .download-btn {
+    padding: 25px;
+  }
+
+  #statistics {
+    border-width: 25px;
+  }
+
+  #games {
+    border-width: 25px;
+  }
+
+  .header .main-nav .nav .nav-item a:hover {
+    background: transparent;
+  }
+
+
   .promo .btns .btn {
     margin-right: 0;
     clear: both;
@@ -881,14 +1244,6 @@ pre code {
     margin-bottom: 5px;
   }
 
-  .info-section .section-title {
-    font-size: 50px;
-
-  }
-
-  .info-section .section-description {
-    font-size: 20px;
-  }
 
   .video-section {
     height: 70vh;

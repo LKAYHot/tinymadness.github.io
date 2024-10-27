@@ -62,78 +62,33 @@
                         <li class="active nav-item sr-only"><a class="scrollto" href="tinymadness.html">Home</a></li>
                         <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH">Дискорд сервер</a></li>
                         <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/channel/UCPf6yv4uhpZDRv2litaWhHA">Канал на ютубе</a></li>
-                        <li class="nav-item"><a href="news.html">Новости</a></li>
+                        <li class="nav-item"><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
                     </ul><!--//nav-->
                 </div><!--//navabr-collapse-->
             </nav><!--//main-nav-->
         </div>
     </header><!--//header-->
-    
-    <section class="video-section section">
-        <div class="container">
-            <h2 class="title">Установка нашего перевода</h2>
-            <p class="sub-titledesc">Посмотрите видео, чтобы установить перевод игры LGTS на русский язык</p>
-    
-            <!-- Video 1 -->
 
-            <div class="video-container">
-                <iframe src="assets/images/TinyGuide1.mp4" allowfullscreen autoplay></iframe>
+    <section class="download-section">
+        <div class="download-image-wrapper">
+          <a href="https://drive.google.com/drive/folders/16vxo5qjJBM3HbJdi9R1_WdekKyiOjSOi?usp=sharing" target="_blank">
+            <div class="download-image left">
             </div>
-
-            <div class="dropdown">
-                <button onclick="toggleDropdown()" class="dropdown-btn">
-                    <span id="selectedVersion">Выберите версию</span>
-                    <span class="arrow-down">&#9660;</span>
-                </button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#" onclick="changeDownloadLink('v0.0.6 Pirate')">v0.0.6 - Pirate Version</a>
-                    <a href="#" onclick="changeDownloadLink('v0.0.6 Steam')">v0.0.6 - Steam Version</a>
-                </div>
-            </div>
-    
-            <!-- Download Button -->
-            <p class="install-text">Выберите версию, которую вы хотите скачать, а потом нажмите на кнопку</p>
-            <a href="#" id="downloadButton" class="install-btn">Ожидание...</a>
+            <div class="text-overlay">
+                <p class="title">Скачать</p>
+              </div>
+          </a>
         </div>
-    </section>
-
-
-
-    <script>
-        function toggleDropdown() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-
-        function changeDownloadLink(version) {
-            var downloadButton = document.getElementById("downloadButton");
-            document.getElementById('selectedVersion').innerText = version;
-    document.getElementById("myDropdown").classList.toggle("show");
-            if (version === 'v0.0.6 Pirate') {
-                var installBtn = document.querySelector('.install-btn');
-    installBtn.style.display = 'inline-block';
-                downloadButton.href = 'https://drive.google.com/file/d/1ah75cQF-iMMzCRaQgTkCRJLwzcHQROZ4/view?usp=sharing'; // Add your link for version 1 here
-            } else if (version === 'v0.0.6 Steam') {
-                var installBtn = document.querySelector('.install-btn');
-    installBtn.style.display = 'inline-block';
-                downloadButton.href = 'https://drive.google.com/file/d/10NMb9O3acXe8B65xrAeMCpGib8yHKcEs/view?usp=sharing'; // Add your link for version 2 here https://drive.google.com/file/d/1oRXNob7f4ngo63-bhlGwCJkH5lRhl9XR/view?usp=sharing
-            }
-            downloadButton.textContent = "Скачать TinyMadnessInstaller " + version;
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.install-btn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
+        <div class="download-image-wrapper">
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <div class="download-image right">
+            </div>
+            <div class="text-overlay">
+                <p class="title">Недоступно</p>
+              </div>
+          </a>
+        </div>
+      </section>
 
 <!--//about-->
     <!-- Javascript -->          
