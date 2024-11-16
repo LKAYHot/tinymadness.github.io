@@ -168,7 +168,7 @@
               </div>
             <p class="intro" data-lang="promo_intro">Нажмите на эту кнопку, чтобы скачать перевод</p>
             <button class="download-btn" onclick="location.href='download.html'">
-                <span>ПЕРЕЙТИ К УСТАНОВКЕ</span>
+                <span data-lang="download_btn_text">ПЕРЕЙТИ К УСТАНОВКЕ</span>
               </button>
 
               <button class="corner-button" onclick="location.href='12dkasdk23l2kssalc23kbvkjnsla.html'"></button>
@@ -185,13 +185,13 @@
         <div class="row">
             <!-- Left side: Text and Progress Bars -->
             <div class="col-md-6">
-                <h2 class="title">Статистика</h2>
-                <p class="description">Здесь вы можете увидеть небольшую статистику перевода игры Unreal Life.</p>
+                <h2 class="title" data-lang="about_title">Статистика</h2>
+                <p class="description" data-lang="about_statistics">Здесь вы можете увидеть небольшую статистику перевода игры Unreal Life.</p>
                 
                 <!-- Progress Bars -->
                 <div class="progress-bar-container">
                     <div class="progress-bar-item">
-                        <p class="progress-bar-title">Главный сюжет</p>
+                        <p class="progress-bar-title" data-lang="plot_text">Главный сюжет</p>
                         <div class="progress-bar-wrapper">
                             <div class="progress-bar-mask" style="--progress: 25%;">25%</div>
                         </div>
@@ -199,7 +199,7 @@
                     </div>
                     
                     <div class="progress-bar-item">
-                        <p class="progress-bar-title">Доп. диалоги</p>
+                        <p class="progress-bar-title" data-lang="dialogues_text">Доп. диалоги</p>
                         <div class="progress-bar-wrapper">
                             <div class="progress-bar-mask" style="--progress: 20%;">20%</div>
                         </div>
@@ -207,7 +207,7 @@
                     </div>
                     
                     <div class="progress-bar-item">
-                        <p class="progress-bar-title">Секреты</p>
+                        <p class="progress-bar-title" data-lang="secrets_text">Секреты</p>
                         <div class="progress-bar-wrapper">
                             <div class="progress-bar-mask" style="--progress: 45%;">45%</div>
                         </div>
@@ -215,7 +215,7 @@
                     </div>
                     
                     <div class="progress-bar-item">
-                        <p class="progress-bar-title">Всего</p>
+                        <p class="progress-bar-title" data-lang="all_text">Всего</p>
                         <div class="progress-bar-wrapper">
                             <div class="progress-bar-mask" style="--progress: 30%;">30%</div>
                         </div>
@@ -236,16 +236,16 @@
 
 <section id="games" class="games section">
     <div class="container">
-        <h2 class="title text-center">Игры</h2>
-        <p class="description text-center">Игры, которые находятся в переводе у TinyMadness.</p>
+        <h2 class="title text-center" data-lang="games_text">Игры</h2>
+        <p class="description text-center" data-lang="games_trans_text">Игры, которые находятся в переводе у TinyMadness.</p>
 
         <div class="row game-container text-center">
             <!-- Left Game -->
             <div class="col-md-6 game">
                 <h3 class="game-title">LGTS</h3>
-                <p class="game-desc">Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений</p>
+                <p class="game-desc" data-lang="games_LGTS_trans_desc">Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений</p>
                 <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="image-container">
-                    <span class="status-text">Переведена</span>
+                    <span class="status-text" data-lang="translated_status">Переведена</span>
                     <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Game 1 Image">
                 </a>
             </div>
@@ -253,9 +253,9 @@
             <!-- Right Game -->
             <div class="col-md-6 game">
                 <h3 class="game-title">Unreal Life</h3>
-                <p class="game-desc">Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.</p>
+                <p class="game-desc" data-lang="games_UNLIFE_trans_desc">Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.</p>
                 <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="image-container blurred">
-                    <span class="status-text">Скоро выйдет</span>
+                    <span class="status-text" data-lang="inprg_status">Скоро выйдет</span>
                     <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="Game 2 Image">
                 </a>
             </div>
@@ -287,47 +287,54 @@
                 'ru': {
                     'discord': 'Дискорд сервер',
                     'youtube': 'YouTube канал',
-                    'news': 'Новости',
                     'lang_ru': 'RU',
                     'lang_en': 'EN',
-                    'promo_title': 'Little Goody Two Shoes',
                     'promo_intro': 'Нажмите на эту кнопку, чтобы скачать перевод',
                     'about_title': 'Статистика',
-                    'about_desc': 'Здесь можно посмотреть полную статистику',
-                    'video_title': 'Тизер',
-                    'video_desc': 'Визуальный прогресс перевода игры LGTS',
+                    'about_statistics': 'Здесь вы можете увидеть небольшую статистику перевода игры Unreal Life.',
                     'closing_title': 'TinyMadness',
-                    'textures_title': 'Текстуры',  
-                    'seconddial_title': 'Доп. диалоги',  
-                    'plot_title': 'Сюжет',  
-                    'task_title': 'Задания',  
                     'meta_link1': '', 
                     'meta_link2': '',
-                    'downloadbuttonlang': 'Скачать наш перевод',
-                    'telegram': 'Телеграм'
+                    'telegram': 'Телеграм',
+                    'download_btn_text': 'ПЕРЕЙТИ К УСТАНОВКЕ',
+                    'plot_text': 'Главный сюжет',
+                    'dialogues_text': 'Доп. диалоги',
+                    'secrets_text': 'Секреты',
+                    'all_text': 'Всего',
+                    'games_text': 'Игры',
+                    'games_trans_text': 'Игры, которые находятся в переводе у TinyMadness.',
+                    'games_LGTS_trans_desc': 'Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений',
+                    'games_UNLIFE_trans_desc': 'Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.',
+                    'translated_status': 'Переведена',
+                    'inprg_status': 'Скоро выйдет',
                 },
                 'en': {
                     'discord': 'Discord Server',
                     'youtube': 'YouTube Channel',
-                    'news': 'News',
                     'lang_ru': 'RU',
                     'lang_en': 'EN',
-                    'promo_title': 'LGTS',
-                    'promo_intro': 'Translation status for the last 24 hours',
+                    'promo_intro': 'Click on this button to download translation',
                     'about_title': 'Statistics',
-                    'about_desc': 'Here you can see full statistics',
-                    'video_title': 'Teaser',
-                    'video_desc': 'Visual progress of LGTS game translation',
+                    'about_statistics': 'Here you can see a little statistics about translation of game Unreal Life.',
                     'closing_title': 'TinyMadness',
                     'textures_title': 'Textures',  
-                    'seconddial_title': 'Sub dialogues', 
                     'plot_title': 'Plot',  
                     'task_title': 'Tasks',  
                     'meta_link1': '', 
                     'meta_link2': '',
-                    'downloadbuttonlang': 'Download our translation',
-                    'telegram': 'Telegram Channel'
-                }
+                    'telegram': 'Telegram Channel',
+                    'download_btn_text': 'GO TO DOWNLOAD PAGE',
+                    'plot_text': 'Main plot',
+                    'dialogues_text': 'Sub. dialogues',
+                    'secrets_text': 'Secrets',
+                    'all_text': 'All',
+                    'games_text': 'Games',
+                    'games_trans_text': 'Games that are translated by TinyMadness.',
+                    'games_LGTS_trans_desc': 'This is a story-driven horror adventure game. It takes place in a hand-drawn fairy-tale world. It has 10 different endings depending on your actions and decisions',
+                    'games_UNLIFE_trans_desc': "This is the story of Haru's journey. Compare memories of the past with the present, solve mysteries and follow the girl and the traffic light in this atmospheric puzzle adventure game.",
+                    'translated_status': 'Translated',
+                    'inprg_status': 'In Progress',             
+                   }
             };
     
             return localizedStrings[lang][key];
