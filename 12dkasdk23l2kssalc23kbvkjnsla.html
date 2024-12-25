@@ -127,8 +127,8 @@
 
   <script>
     
-    function decodeBase64(base64) {
-      return atob(base64);
+    function decode(main) {
+      return atob(main);
     }
     const images = {
       morning: 'aHR0cHM6Ly90aW55bWFkbmVzcy5vbmxpbmUvYXNzZXRzL2ltYWdlcy9zZWNvbmRseS5wbmc=',
@@ -143,11 +143,11 @@
       let imageUrl;
 
       if (hour >= 5 && hour < 19) {
-        imageUrl = decodeBase64(images.morning);
+        imageUrl = decode(images.morning);
       } else if (hour >= 19 && hour < 24) {
-        imageUrl = decodeBase64(images.day);
+        imageUrl = decode(images.day);
       } else {
-        imageUrl = decodeBase64(images.night);
+        imageUrl = decode(images.night);
       }
 
       vhsContainer.style.setProperty("background-image", `url(${imageUrl})`);

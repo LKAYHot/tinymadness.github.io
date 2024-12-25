@@ -155,7 +155,7 @@ var options = {
 
   
   
-  document.addEventListener("DOMContentLoaded", function() {
+  /* document.addEventListener("DOMContentLoaded", function() {
     var chart = new ApexCharts(document.querySelector("#line-chart"), options);
     readDataFromGoogleSheets((data, additionalData, additionalData1) => {
         chart.updateSeries([{
@@ -163,5 +163,5 @@ var options = {
         }]);
         updateAdditionalData(additionalData, additionalData1);
     });
-    chart.render();
-});
+    chart.render(); 
+}); */
