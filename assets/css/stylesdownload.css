@@ -608,12 +608,11 @@ pre code {
   }
 }
 /* Маскирование и фоновое изображение для левого и правого элементов */
-.download-image.left {
-  background-image: url('https://tinymadness.online/assets/images/littleGoody.webp');
+.download-image.translated {
+  filter: none;
 }
 
-.download-image.right {
-  background-image: url('https://tinymadness.online/assets/images/Unreal.webp');
+.download-image.inprg {
   filter: blur(5px);
 }
 
