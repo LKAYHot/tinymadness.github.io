@@ -809,28 +809,53 @@ pre code {
   }
 }
 
-#statistics {
-  padding: 60px 0;
+/* ======= About Section ======= */
+#about {
+  width: 100%;               /* занять всю ширину контейнера */
+  box-sizing: border-box;    /* рамка входит в width */
+  padding: 80px 0;           /* ваши отступы сверху/снизу */
   background-color: #080d18;
-  border-width: 150px; /* Толщина рамки */
+  border-width: 150px;       /* базовая толщина рамки */
   border-style: solid;
   border-color: #05afe7;
   border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round;
+  text-align: center;
 }
 
-#statistics .title {
-  font-size: 65px;
+#about .about-title {
+  font-family: 'Source Serif 4', sans-serif;
+  font-size: 100px;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 20px;
-  color: white;
-  font-family: 'Source Serif 4', sans-serif;
-  font-weight: bold;
+  animation: fadeIn 1s ease forwards;
 }
 
-#statistics .description {
-  font-size: 20px;
-  margin-bottom: 40px;
+/* 3) Текст внутри */
+#about .about-text {
   font-family: 'Source Serif 4', sans-serif;
+  max-width: 90%;            /* не более 90% от ширины секции */
+  margin: 0 auto;
+  font-size: 25px;
+  line-height: 1.8;
+  color: #a7a7a7;
+  animation: slideUp 1s ease forwards;
 }
+
+/* 4) Адаптивные рамки на разных брейкпоинтах */
+@media (max-width: 1200px) {
+  #about { border-width: 100px; }
+}
+@media (max-width: 992px) {
+  #about { border-width: 80px; }
+}
+@media (max-width: 768px) {
+  #about { border-width: 50px; }
+}
+@media (max-width: 480px) {
+  #about { border-width: 25px; }
+}
+
 
 .progress-bar-item {
   display: flex;
@@ -955,6 +980,15 @@ pre code {
   }
 }
 
+@media (max-width: 768px) {
+  #about .about-title {
+    font-size: 48px;
+  }
+  #about .about-text {
+    font-size: 18px;
+  }
+}
+
 /* For very small screens (mobile devices) */
 @media (max-width: 480px) {
   .masked-image {
@@ -962,6 +996,19 @@ pre code {
     height: auto;
     max-height: 400px; /* Дополнительное ограничение для мобильных устройств */
     margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  #about {
+    border-width: 25px;
+  }
+  #about .about-title {
+    font-size: 36px;
+  }
+  #about .about-text {
+    font-size: 16px;
+    padding: 0 10px;
   }
 }
 
@@ -1216,9 +1263,6 @@ pre code {
   }
   .download-btn span {
     font-size: 15px;
-  }
-  #statistics .title {
-    font-size: 45px;
   }
 
   #games .title {
