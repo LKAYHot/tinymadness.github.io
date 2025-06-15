@@ -513,6 +513,21 @@ pre code {
   overflow: hidden;
 }
 
+.download-image-wrapper.locked .download-image {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.download-image-wrapper.locked .text-overlay .title {
+  color: #aaa;
+}
+
+/* Отключаем кликабельность */
+.download-image-wrapper.locked a {
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Глитч эффект - добавляем сильные цветовые смещения */
 .download-image::before,
 .download-image::after {
