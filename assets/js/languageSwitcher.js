@@ -40,6 +40,7 @@ function getLocalizedString(key, lang) {
             'games_UNLIFE_trans_desc': 'Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.',
             'games_FNAF_trans_desc': 'Войдите в заброшенную Мастерскую Костюмов Мюррея и раскройте тайну, оставленную затворником-изобретателем Эдвином Мюрреем. В Five Nights at Freddy’s: Secret of the Mimic вы окажетесь в мире, где каждый темный угол хранит секрет, а каждый мерцающий огонек намекает на присутствующую угрозу.',
             'translated_status': 'Переведена',
+            'translated_voice': 'В процессе',
             'inprg_status': 'Скоро выйдет',
         },
         'en': {
@@ -68,6 +69,7 @@ function getLocalizedString(key, lang) {
             'games_UNLIFE_trans_desc': "This is the story of Haru's journey. Compare memories of the past with the present, solve mysteries and follow the girl and the traffic light in this atmospheric puzzle adventure game.",
             'games_FNAF_trans_desc': 'Enter the abandoned workshop of Murray’s Costume Manor and unravel the mystery left behind by the reclusive inventor. In Five Nights at Freddy’s: Secret of the Mimic, you’ll step into a world where every dark corner holds a secret and every flicker of light hints at an ever-present threat.',
             'translated_status': 'Translated',
+            'translated_voice': 'In progress',
             'inprg_status': 'In Progress',             
            }
     };

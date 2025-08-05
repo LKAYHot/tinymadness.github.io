@@ -43,7 +43,7 @@
     addDownloadImage(
       'https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png',
       'https://drive.google.com/drive/folders/11U_q2lq9MKUWS_OWG_0v4cHLWXOG_Poe?usp=sharing',
-      'Скачать',
+      'Старая версия',
     );
     
 
