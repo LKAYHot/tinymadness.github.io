@@ -1,6 +1,4 @@
-/* =============================================================================
-   TinyMadness — Download Page Styles (clean)
-   ============================================================================= */
+
 
 /* ---------- CSS Vars ---------- */
 :root{
@@ -208,29 +206,22 @@ body:has(.download-section)::before{
 
 /* =============================================================================
    DOWNLOAD SECTION — только обложка + бейдж, без нижнего блока
-   Стабильная сетка без конфликтов ширин при зуме
    ============================================================================= */
 
-/* сетка */
 .download-section{
   display: grid;
-  /* колонка не уже var(--card-min), но может сжиматься до 100% контейнера,
-     и растягивается до 1fr — так кол-во колонок адаптивно без налезаний */
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), var(--card-max)));
   gap: var(--dl-gap);
 
-  /* центрируем сетку и элементы */
   place-content: center;
   justify-items: stretch;
 
-  /* занимаем экран по высоте и отступаем от шапки */
   margin-top: calc(var(--header-h) + var(--header-gap));
   min-height: calc(100vh - var(--header-h) - var(--header-gap));
   padding: 40px 20px 60px;
   background: none;
 }
 
-/* убираем «карточность»: оставляем только обложку */
 .game-card.download-card{
   background: transparent;
   border: 0;
@@ -239,7 +230,6 @@ body:has(.download-section)::before{
   padding: 0;
   margin: 0;
 
-  /* ширина подчиняется колоночному треку, но не больше крышки */
   width: 100%; 
 }
 
@@ -362,9 +352,7 @@ body:has(.download-section)::before{
   .game-card.download-card{ width: 100%; }
 }
 
-/* =============================================================================
-   (Опционально) Оформление #games — если нужен одинаковый стиль
-   ============================================================================= */
+
 #games{
   background-color:#080d18;
   border-width:150px;
