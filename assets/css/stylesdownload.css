@@ -1,48 +1,53 @@
 /* =============================================================================
-   TinyMadness - Download Page Styles
+   TinyMadness — Download Page Styles (clean)
    ============================================================================= */
 
 /* ---------- CSS Vars ---------- */
 :root{
-  --accent:#c72d1c;      /* алый */
-  --accent2:#ff5330;     /* тёплый красно-оранжевый */
-  --header-h: 88px;   /* подгони при желании */
-  --header-gap: 10px; /* воздух под шапкой */
-  --dl-card-w: 720px;        /* желаемая ширина одной карточки на десктопе */
-  --dl-card-w-md: 560px;     /* ширина на средних экранах */
-  --dl-card-radius: 22px;    /* скругление */
+  --accent: #c72d1c;         /* алый */
+  --accent2: #ff5330;        /* тёплый красно-оранжевый */
+
+  --header-h: 88px;          /* высота шапки */
+  --header-gap: 10px;        /* отступ под шапкой */
+
   --dl-gap: 15px;            /* расстояние между карточками */
+  --dl-card-radius: 22px;    /* скругление */
+
+  /* Диапазон ширин карточки/колонки */
+  --card-min: 480px;         /* можно 420–520 по вкусу */
+  --card-max: 720px;         /* «крышка», чтобы не раздувались */
 }
 
 /* ---------- Base ---------- */
-html,body{height:100%;}
+html, body { height: 100%; }
+
 body{
-  font-family:'Lato', arial, sans-serif;
-  color:#ffffff;
-  background-color:#000000;
-  font-size:16px;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  font-family: 'Lato', arial, sans-serif;
+  color: #ffffff;
+  background-color: #000000;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family:'Montserrat', sans-serif;
-  font-weight:700;
-  color:#020303; /* заголовки внутри светлых блоков */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #020303; /* заголовки внутри светлых блоков */
 }
 
 a{
-  color:#292929;
-  transition:all .4s ease-in-out;
+  color: #292929;
+  transition: all .4s ease-in-out;
 }
 a:hover{
-  text-decoration:underline;
-  color:#000000;
+  text-decoration: underline;
+  color: #000000;
 }
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar{ width:4px; }
-::-webkit-scrollbar-track{ background-color:rgba(2,23,31,.2); }
+::-webkit-scrollbar-track{ background-color: rgba(2,23,31,.2); }
 ::-webkit-scrollbar-thumb{ background-color:#fff; border-radius:5px; }
 ::-webkit-scrollbar-thumb:hover{ background-color:#949494; }
 
@@ -50,93 +55,102 @@ a:hover{
 @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
 @keyframes slideUp{ from{ transform:translateY(50px); opacity:0 } to{ transform:none; opacity:1 } }
 
+/* =============================================================================
+   Header / Nav
+   ============================================================================= */
 .header{
-  position:fixed; inset:0 auto auto 0; width:100%;
-  z-index:99999;
-  padding:10px 20px;            /* было без px — исправил */
-  background:#000;              /* стартовый фон; далее модифицируется .nav-glass/.is-scrolled */
-  color:#fff;
-  opacity:0; animation:fadeIn 1s cubic-bezier(0.67,-0.14,0,1.72) forwards;
+  position: fixed; inset: 0 auto auto 0; width: 100%;
+  z-index: 99999;
+  padding: 10px 20px;
+  background: #000; /* стартовый фон; далее модифицируется классами ниже */
+  color: #fff;
+  opacity: 0; animation: fadeIn 1s cubic-bezier(0.67,-0.14,0,1.72) forwards;
 }
 
-/* Стеклянный эффект + состояние скролла — уже было у тебя, оставляем: */
+/* стекло + состояние скролла */
 .nav-glass{
-  background:rgba(0,0,0,.35);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 .header.is-scrolled{
-  background:#000;
-  border-color:rgba(255,255,255,.12);
-  box-shadow:0 8px 30px rgba(0,0,0,.35);
+  background: #000;
+  border-color: rgba(255,255,255,.12);
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 
-/* Сетка хедера */
-.nav-shell{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
+/* сетка хедера */
+.nav-shell{
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
 
-/* Логотип/бренд (замена старого .logo) */
+/* бренд */
 .brand,
 .brand:link,
 .brand:visited{
-  font-family:'Lato', arial, sans-serif;
-  font-weight:800; letter-spacing:.5px; text-transform:uppercase;
+  font-family: 'Lato', arial, sans-serif;
+  font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+  color: #fff; text-decoration: none;
+}
+.brand:hover, .brand:focus, .brand:active{
   color:#fff; text-decoration:none;
 }
-.brand:hover, .brand:focus, .brand:active{ color:#fff; text-decoration:none; }
 
-/* Навигация (замена старых .nav .nav-item) */
+/* навигация */
 .nav-area{ display:flex; align-items:center; gap:28px; }
 .nav-list{ display:flex; gap:24px; margin:0; padding:0; list-style:none; }
+
 .nav-item > a,
 .nav-item > a:link,
 .nav-item > a:visited{
-  position:relative;
-  display:inline-block;
-  padding:12px 2px 10px;
-  font-weight:700;
-  font-family: 'Montserrat', sans-serif;
-  color:#d6d6d6; text-decoration:none;
-  -webkit-transition:none; -moz-transition:none; -ms-transition:none; -o-transition:none;
+  position: relative;
+  display: inline-block;
+  padding: 12px 2px 10px;
+  font: 700 14px 'Montserrat', sans-serif;
+  color: #d6d6d6; text-decoration: none;
+  -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none;
 }
 /* перекрываем глобальный a:hover { color:#000 } */
 .nav-item > a:hover,
 .nav-item > a:focus-visible,
 .nav-item > a:active{ color:#fff; text-decoration:none; }
 
-/* Акцентная «подчёркивающая» линия (вместо mask-кнопки из старого хедера) */
+/* подчёркивающая линия */
 .nav-item > a::after{
   content:"";
   position:absolute; left:0; right:0; bottom:2px; height:2px; border-radius:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transform:scaleX(0); transform-origin:left center;
-  transition:transform .25s ease; pointer-events:none;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .25s ease; pointer-events: none;
 }
-/* hover/active */
 .nav-item > a:hover::after,
 .nav-item > a:focus-visible::after,
-.nav-item.active > a::after,                  /* класс .active на <li> */
-.nav-item > a[aria-current="page"]::after{    /* или aria-current на <a> */
-  transform:scaleX(1);
+.nav-item.active > a::after,
+.nav-item > a[aria-current="page"]::after{
+  transform: scaleX(1);
 }
 
-/* RU/EN pill — оставляем твои правила, добавил читаемость активной */
+/* язык-переключатель (если используется) */
 .lang-switch{
   display:flex; gap:6px; padding:4px; border:1px solid rgba(255,255,255,.12);
-  border-radius:999px;
+  border-radius: 999px;
 }
-.lang-btn{ padding:6px 12px; border-radius:999px; font-weight:800; letter-spacing:.3px;
+.lang-btn{
+  padding:6px 12px; border-radius:999px; font-weight:800; letter-spacing:.3px;
   color:#d6d6d6; text-decoration:none;
 }
-.lang-btn.is-active{ background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; }
+.lang-btn.is-active{
+  background: linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff;
+}
 
-/* Гамбургер (замена .navbar-toggle/.icon-bar) */
+/* гамбургер */
 .nav-toggle{
   display:none; position:relative; width:38px; height:38px; border:0; background:transparent; cursor:pointer;
 }
 .nav-toggle span{
   position:absolute; left:8px; right:8px; height:2px; background:#fff;
-  transition:transform .3s, top .3s, opacity .3s;
+  transition: transform .3s, top .3s, opacity .3s;
 }
 .nav-toggle span:nth-child(1){ top:12px; }
 .nav-toggle span:nth-child(2){ top:18px; }
@@ -145,10 +159,10 @@ a:hover{
 .nav-toggle.is-open span:nth-child(2){ opacity:0; }
 .nav-toggle.is-open span:nth-child(3){ top:18px; transform:rotate(-45deg); }
 
-/* Блокировка прокрутки при открытом меню */
-body.no-scroll{ overflow:hidden; }
+/* блокировка прокрутки при открытом меню */
+body.no-scroll{ overflow: hidden; }
 
-/* Мобилка (замена старого collapse) */
+/* мобилка */
 @media (max-width:900px){
   .header .container.nav-shell{ max-width:100%; width:100%; padding:0 16px; }
   .nav-shell{ display:flex !important; align-items:center; justify-content:space-between; gap:12px; }
@@ -163,133 +177,151 @@ body.no-scroll{ overflow:hidden; }
   }
 
   .nav-area{
-    position:fixed; inset:0; top:59px;
-    background:rgba(0,0,0,.92);
-    padding:28px;
-    display:flex; flex-direction:column; align-items:flex-start; gap:20px;
-    z-index:99998;
-    transform:translateY(-120%); opacity:0; visibility:hidden; pointer-events:none;
-    transition:transform .28s ease, opacity .28s ease, visibility 0s linear .28s;
+    position: fixed; inset: 0; top: 59px;
+    background: rgba(0,0,0,.92);
+    padding: 28px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+    z-index: 99998;
+    transform: translateY(-120%); opacity: 0; visibility: hidden; pointer-events: none;
+    transition: transform .28s ease, opacity .28s ease, visibility 0s linear .28s;
   }
-  .nav-area.open{ transform:translateY(0); opacity:1; visibility:visible; pointer-events:auto; transition:transform .28s ease, opacity .28s ease; }
-  .nav-list{ flex-direction:column; gap:12px; }
-  .nav-item > a{ font-size:20px; padding:10px 0; }
+  .nav-area.open{
+    transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto;
+    transition: transform .28s ease, opacity .28s ease;
+  }
+  .nav-list{ flex-direction: column; gap: 12px; }
+  .nav-item > a{ font-size: 20px; padding: 10px 0; }
   .lang-switch{ width:100%; justify-content:space-between; }
 }
 
 /* =============================================================================
-   DOWNLOAD SECTION (визуал как у #games, плюс глитч поверх обложки)
-   Компактные карточки: только обложка + бейдж, без нижнего блока
+   Background (глитч) позади раздела загрузок
    ============================================================================= */
-
-/* Сетка плиток */
-.download-section{
-  /* сетка как раньше */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(var(--dl-card-min), var(--dl-card-max)));
-  gap: var(--dl-gap);
-
-  /* центрируем СЕТКУ (а не элементы отдельно) по обеим осям */
-  place-content: center;          /* = align-content:center + justify-content:center */
-  justify-items: center;          /* сами плитки по центру колонки */
-
-  /* занимаем экран по высоте и центрируем по вертикали */
-  min-height: calc(100vh - var(--header-h, 72px));
-  padding: 40px 20px 60px;
-  background: none !important;    /* фон уже на body::before */
+body:has(.download-section)::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background: url("https://tinymadness.online/assets/images/effectglitch2.gif") center/cover no-repeat;
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* обнуляем «карточность»: оставим только обложку */
+/* =============================================================================
+   DOWNLOAD SECTION — только обложка + бейдж, без нижнего блока
+   Стабильная сетка без конфликтов ширин при зуме
+   ============================================================================= */
+
+/* сетка */
+.download-section{
+  display: grid;
+  /* колонка не уже var(--card-min), но может сжиматься до 100% контейнера,
+     и растягивается до 1fr — так кол-во колонок адаптивно без налезаний */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr));
+  gap: var(--dl-gap);
+
+  /* центрируем сетку и элементы */
+  place-content: center;
+  justify-items: center;
+
+  /* занимаем экран по высоте и отступаем от шапки */
+  margin-top: calc(var(--header-h) + var(--header-gap));
+  min-height: calc(100vh - var(--header-h) - var(--header-gap));
+  padding: 40px 20px 60px;
+  background: none;
+}
+
+/* убираем «карточность»: оставляем только обложку */
 .game-card.download-card{
-  background:transparent !important;
-  border:0 !important;
-  box-shadow:none !important;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   border-radius: var(--dl-card-radius);
-  padding:0 !important;
-  margin:0 !important;
-  width:100%;
-  max-width:360px;
+  padding: 0;
+  margin: 0;
+
+  /* ширина подчиняется колоночному треку, но не больше крышки */
+  width: min(100%, var(--card-max));
 }
 
 /* показываем только обложку внутри карточки */
-.game-card.download-card > *:not(.game-cover){ display:none !important; }
+.game-card.download-card > *:not(.game-cover){ display: none !important; }
 
 /* обложка — это и есть плитка */
 .game-card.download-card .game-cover{
-  position:relative;
-  display:block;
-  aspect-ratio:16/9;
-  width:100%;
-  overflow:hidden;
-  border-radius:16px;
-  box-shadow:0 12px 28px rgba(0,0,0,.35);
-  background:#06101e;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: var(--dl-card-radius);
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+  background: #06101e;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 .game-card.download-card:hover .game-cover{
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0,0,0,.42);
 }
 
-/* собственно изображение (фон блока) */
+/* само изображение */
 .game-card.download-card .download-image{
-  position:relative;
-  width:100%;
-  height:100% !important;     /* перебиваем любые старые фикс. высоты */
-  background-size:cover;
-  background-position:center;
-  transform:scale(1.02);
-  transition:transform .35s ease, filter .35s ease;
-  z-index:1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform .35s ease, filter .35s ease;
+  z-index: 1;
 }
-.game-card.download-card:hover .download-image{ transform:scale(1.065); }
+.game-card.download-card:hover .download-image{ transform: scale(1.065); }
 
-/* глянец сверху, как в #games */
+/* глянец сверху */
 .game-card.download-card .game-cover::after{
   content:"";
-  position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
-  pointer-events:none;
-  z-index:2;
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* бейдж статуса */
 .game-card.download-card .game-badge{
-  position:absolute; left:12px; bottom:10px;
+  position: absolute; left: 12px; bottom: 10px;
   padding: 8px 12px;
   font-size: 15px;
-  border-radius:999px;
-  font:800 14px 'Source Serif 4', sans-serif;
-  letter-spacing:.2px;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.55);
-  backdrop-filter:saturate(140%) blur(2px);
-  z-index:3;
+  border-radius: 999px;
+  font: 800 14px 'Source Serif 4', sans-serif;
+  letter-spacing: .2px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.55);
+  backdrop-filter: saturate(140%) blur(2px);
+  z-index: 3;
 }
 .game-card.download-card .badge--ok{
-  background:linear-gradient(90deg,#2ecc71,#27ae60);
-  border-color:rgba(255,255,255,.18);
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+  border-color: rgba(255,255,255,.18);
 }
 .game-card.download-card .badge--vo{
-  background:linear-gradient(90deg,var(--accent,#c72d1c),var(--accent2,#ff5330));
-  border-color:rgba(255,255,255,.2);
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-color: rgba(255,255,255,.2);
 }
 
 /* заблокированные */
-.game-card.download-card.locked .download-image{ filter:blur(3px); }
-.game-card.download-card.locked a{ pointer-events:none; cursor:default; }
+.game-card.download-card.locked .download-image{ filter: blur(3px); }
+.game-card.download-card.locked a{ pointer-events: none; cursor: default; }
 
-/* ==== glitch-эффект сохранён ==== */
+/* glitch-эффект поверх изображения */
 .game-card.download-card .download-image::before,
 .game-card.download-card .download-image::after{
   content:"";
-  position:absolute; inset:0;
-  background:inherit;                 /* то же изображение */
-  pointer-events:none;
-  mix-blend-mode:overlay;
-  z-index:1;                          /* под глянцем и бейджем */
-  background-image:repeating-linear-gradient(
+  position: absolute; inset: 0;
+  background: inherit;                 /* то же изображение */
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 1;                          /* под глянцем и бейджем */
+  background-image: repeating-linear-gradient(
     to bottom,
     rgba(255,255,255,0.2) 0px,
     rgba(255,255,255,0.2) 3px,
@@ -298,39 +330,39 @@ body.no-scroll{ overflow:hidden; }
   );
 }
 .game-card.download-card .download-image::before{
-  transform:translate(-50px,-50px);
-  opacity:.9; background-color:rgba(255,0,0,.30);
-  clip-path:inset(10% 0 20% 0);
-  animation:glitch 0.08s infinite;
+  transform: translate(-50px,-50px);
+  opacity: .9; background-color: rgba(255,0,0,.30);
+  clip-path: inset(10% 0 20% 0);
+  animation: glitch 0.08s infinite;
 }
 .game-card.download-card .download-image::after{
-  transform:translate(15px,15px);
-  opacity:.9; background-color:rgba(0,0,255,.30);
-  clip-path:inset(20% 0 10% 0);
-  animation:glitch 0.08s infinite alternate;
+  transform: translate(15px,15px);
+  opacity: .9; background-color: rgba(0,0,255,.30);
+  clip-path: inset(20% 0 10% 0);
+  animation: glitch 0.08s infinite alternate;
 }
 @keyframes glitch{
-  0%{transform:translate(0,0)}
-  15%{transform:translate(-15px,10px)}
-  30%{transform:translate(50px,-15px)}
-  45%{transform:translate(-30px,30px)}
-  60%{transform:translate(20px,-20px)}
-  75%{transform:translate(-15px,25px)}
-  100%{transform:translate(-20px,10px)}
+  0%{ transform: translate(0,0) }
+  15%{ transform: translate(-15px,10px) }
+  30%{ transform: translate(50px,-15px) }
+  45%{ transform: translate(-30px,30px) }
+  60%{ transform: translate(20px,-20px) }
+  75%{ transform: translate(-15px,25px) }
+  100%{ transform: translate(-20px,10px) }
 }
 
-/* responsive: на очень узких делаем по 2 в ряд */
+/* ---------- Mobile tweaks ---------- */
 @media (max-width:600px){
+  :root{ --header-h: 64px; }
   .download-section{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-    place-content: center;
+    grid-template-columns: 1fr; /* по одной в ряд */
+    gap: 15px;
   }
-  .game-card.download-card{ max-width:none; }
+  .game-card.download-card{ width: 100%; }
 }
 
 /* =============================================================================
-   (Опционально) Games section title look — если нужно сохранить консистентность
+   (Опционально) Оформление #games — если нужен одинаковый стиль
    ============================================================================= */
 #games{
   background-color:#080d18;
@@ -363,57 +395,4 @@ body.no-scroll{ overflow:hidden; }
   #games{ border-width:25px; }
   #games .title{ font-size:48px; }
   #games .description{ font-size:18px; }
-}
-
-body:has(.download-section)::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url("https://tinymadness.online/assets/images/effectglitch2.gif") center/cover no-repeat;
-  z-index:-1;
-  pointer-events:none;
-}
-
-.download-section{
-  margin-top: calc(var(--header-h) + var(--header-gap)) !important;
-  min-height: calc(100vh - var(--header-h) - var(--header-gap)) !important;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)) !important;
-  gap: var(--dl-gap) !important;
-  place-content: center !important;
-  justify-items: center !important;
-}
-
-/* принудительно увеличиваем сами карточки */
-.game-card.download-card{
-  width: clamp(480px, 50vw, var(--dl-card-w)) !important;
-  max-width: none !important;
-}
-
-/* обложка и скругление */
-.game-card.download-card .game-cover{
-  border-radius: var(--dl-card-radius) !important;
-}
-
-/* бейдж немного крупнее */
-.game-card.download-card .game-badge{
-  padding: 8px 14px !important;
-  font-size: 16px !important;
-}
-
-@media (max-width: 600px){
-  :root{ --header-h: 64px; }
-  .download-section{
-    grid-template-columns: 1fr !important;
-    gap: 15px !important;
-  }
-  .game-card.download-card{
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 1500px){
-
-.game-card.download-card{
-    width: 100% !important;
-  }
 }
