@@ -14,7 +14,7 @@
   --dl-card-radius: 22px;    /* скругление */
 
   /* Диапазон ширин карточки/колонки */
-  --card-min: 480px;         /* можно 420–520 по вкусу */
+  --card-min: 700px;         /* можно 420–520 по вкусу */
   --card-max: 720px;         /* «крышка», чтобы не раздувались */
 }
 
@@ -216,12 +216,12 @@ body:has(.download-section)::before{
   display: grid;
   /* колонка не уже var(--card-min), но может сжиматься до 100% контейнера,
      и растягивается до 1fr — так кол-во колонок адаптивно без налезаний */
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), var(--card-max)));
   gap: var(--dl-gap);
 
   /* центрируем сетку и элементы */
   place-content: center;
-  justify-items: center;
+  justify-items: stretch;
 
   /* занимаем экран по высоте и отступаем от шапки */
   margin-top: calc(var(--header-h) + var(--header-gap));
@@ -240,7 +240,7 @@ body:has(.download-section)::before{
   margin: 0;
 
   /* ширина подчиняется колоночному треку, но не больше крышки */
-  width: min(100%, var(--card-max));
+  width: 100%; 
 }
 
 /* показываем только обложку внутри карточки */
@@ -353,7 +353,8 @@ body:has(.download-section)::before{
 
 /* ---------- Mobile tweaks ---------- */
 @media (max-width:600px){
-  :root{ --header-h: 64px; }
+  :root{ --header-h: 64px; --dl-gap: 15px; }
+  
   .download-section{
     grid-template-columns: 1fr; /* по одной в ряд */
     gap: 15px;
