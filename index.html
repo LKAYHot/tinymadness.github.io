@@ -38,43 +38,87 @@
     </script>
 </head> 
 
-    
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // эффект шапки при скролле
+  const header = document.querySelector('header.header');
+  if (header) {
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // меню
+  const toggle = document.querySelector('.nav-toggle');
+  const nav    = document.getElementById('site-nav');
+  if (toggle && nav) {
+    const closeNav = () => {
+      nav.classList.remove('open');
+      toggle.classList.remove('is-open');
+      document.body.style.overflow = '';
+      toggle.setAttribute('aria-expanded','false');
+    };
+    const openNav = () => {
+      nav.classList.add('open');
+      toggle.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      toggle.setAttribute('aria-expanded','true');
+    };
+
+    // по клику
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.contains('open');
+      isOpen ? closeNav() : openNav();
+    });
+
+    // закрывать по клику на ссылку
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+    // на старте и при смене брейкпоинта — закрыть
+    const mq = window.matchMedia('(max-width: 900px)');
+    if (mq.matches) closeNav();
+    mq.addEventListener('change', closeNav);
+  }
+
+  // актив RU/EN
+  const langBtns = document.querySelectorAll('.lang-switch .lang-btn');
+  langBtns.forEach(b => b.addEventListener('click', function () {
+    langBtns.forEach(x => x.classList.remove('is-active'));
+    this.classList.add('is-active');
+  }));
+});
+</script>
 
 <body data-spy="scroll" class="custom-scrollbar">
 
     <div id="snowflakes"></div>
     
     <!-- ******HEADER****** --> 
-    <header id="header" class="header">  
-        <div class="container">            
-            <h1 class="logo pull-left">
-                <a class="scrollto" href="#promo">
-                    <span class="logo-title">TinyMadness</span>
-                </a>
-            </h1><!--//logo-->              
-            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button><!--//nav-toggle-->
-                </div><!--//navbar-header-->            
-                <div class="navbar-collapse collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active nav-item sr-only"><a class="scrollto" href="#promo">Home</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial" data-lang="youtube">YouTube канал</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
-                       <!-- <li class="nav-item"><a href="news.html" data-lang="news">Новости</a></li> -->
-                        <li class="nav-item"><a href="javascript:void(0);" onclick="changeLanguage('ru')" data-lang="lang_ru">RU</a></li>
-                        <li class="nav-item"><a href="javascript:void(0);" onclick="changeLanguage('en')" data-lang="lang_en">EN</a></li>
-                    </ul><!--//nav-->
-                </div><!--//navabr-collapse-->
-            </nav><!--//main-nav-->
-        </div>
-    </header><!--//header-->
+   <header id="header" class="header nav-glass">
+  <div class="container nav-shell">
+    <a class="brand scrollto" href="#promo">TinyMadness</a>
+
+    <!-- гамбургер -->
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- навигация -->
+    <nav id="site-nav" class="nav-area" role="navigation">
+      <ul class="nav-list">
+        <li><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
+        <li><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial" data-lang="youtube">YouTube канал</a></li>
+        <li><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
+      </ul>
+
+      <!-- переключатель языка -->
+      <div class="lang-switch" role="group" aria-label="Язык">
+        <a href="javascript:void(0);" onclick="changeLanguage('ru')" class="lang-btn is-active" data-lang="lang_ru">RU</a>
+        <a href="javascript:void(0);" onclick="changeLanguage('en')" class="lang-btn" data-lang="lang_en">EN</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
  <!-- <div id="popup" class="popup">
         <span class="popup-close" onclick="closePopup()">&times;</span>
@@ -139,41 +183,56 @@
       </section>
 
 <section id="games" class="games section">
-    <div class="container">
-        <h2 class="title text-center" data-lang="games_text">Игры</h2>
-        <p class="description text-center" data-lang="games_trans_text">Игры, которые находятся в переводе у TinyMadness.</p>
+  <div class="container">
+    <h2 class="title text-center" data-lang="games_text">Игры</h2>
+    <p class="description text-center" data-lang="games_trans_text">
+      Игры, которые находятся в переводе у TinyMadness.
+    </p>
 
-        <div class="row game-container text-center">
-            <!-- Left Game -->
-            <div class="col-md-6 game">
-                <h3 class="game-title">LGTS</h3>
-                <p class="game-desc" data-lang="games_LGTS_trans_desc">Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений</p>
-                <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="image-container">
-                    <span class="status-text" data-lang="translated_status">Переведена</span>
-                    <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Game 1 Image">
-                </a>
-            </div>
-
-            <!-- Right Game -->
-            <div class="col-md-6 game">
-                <h3 class="game-title">Unreal Life</h3>
-                <p class="game-desc" data-lang="games_UNLIFE_trans_desc">Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.</p>
-                <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="image-container"> <!--class="image-container blurred">-->
-                    <span class="status-text" data-lang="translated_status">Переведена</span>
-                    <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="Game 2 Image">
-                </a>
-            </div>
-
-              <div class="col-md-6 game">
-                <h3 class="game-title">Five Nights at Freddy's: Secret of the Mimic</h3>
-                <p class="game-desc" data-lang="games_FNAF_trans_desc">Войдите в заброшенную Мастерскую Костюмов Мюррея и раскройте тайну, оставленную затворником-изобретателем Эдвином Мюрреем. В Five Nights at Freddy’s: Secret of the Mimic вы окажетесь в мире, где каждый темный угол хранит секрет, а каждый мерцающий огонек намекает на присутствующую угрозу.</p>
-                <a href="https://store.steampowered.com/app/2215390/Five_Nights_at_Freddys_Secret_of_the_Mimic/" class="image-container"> <!--class="image-container blurred">-->
-                    <span class="status-text" data-lang="translated_voice">В процессе озвучки</span>
-                    <img src="https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png" alt="Game 2 Image">
-                </a>
-            </div>
+    <div class="games-grid">
+      <!-- Card 1 -->
+      <article class="game-card">
+        <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="game-cover" aria-label="LGTS on Steam">
+          <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Little Goody Two Shoes">
+          <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
+        </a>
+        <div class="game-body">
+          <h3 class="game-title">LGTS</h3>
+          <p class="game-desc" data-lang="games_LGTS_trans_desc">
+            Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений
+          </p>
         </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="game-card">
+        <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="game-cover" aria-label="Unreal Life on Steam">
+          <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="UNREAL LIFE">
+          <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
+        </a>
+        <div class="game-body">
+          <h3 class="game-title">Unreal Life</h3>
+          <p class="game-desc" data-lang="games_UNLIFE_trans_desc">
+            Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="game-card">
+        <a href="https://store.steampowered.com/app/2215390/Five_Nights_at_Freddys_Secret_of_the_Mimic/" class="game-cover" aria-label="FNaF: Secret of the Mimic on Steam">
+          <img src="https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png" alt="FNaF: Secret of the Mimic">
+          <span class="game-badge badge--vo" data-lang="translated_voice">В процессе озвучки</span>
+        </a>
+        <div class="game-body">
+          <h3 class="game-title">Five Nights at Freddy's: Secret of the Mimic</h3>
+          <p class="game-desc" data-lang="games_FNAF_trans_desc">
+            Войдите в заброшенную Мастерскую Костюмов Мюррея и раскройте тайну, оставленную затворником-изобретателем Эдвином Мюрреем. Атмосферный хоррор, где каждый тёмный угол хранит секрет.
+          </p>
+        </div>
+      </article>
     </div>
+  </div>
 </section>
 <!--//about-->
     <!-- Javascript -->       

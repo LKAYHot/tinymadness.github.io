@@ -38,36 +38,80 @@
     </script>
 </head> 
 
+<script>
+(function () {
+  function initNav() {
+    const header = document.getElementById('header');
+    const toggle = document.querySelector('.nav-toggle');
+    const nav    = document.getElementById('site-nav');
+
+    // Если на странице нет хедера/навигации — выходим тихо (например, на download.html)
+    if (!header || !toggle || !nav) {
+      console.warn('[nav] Header/nav not found on this page — init skipped.');
+      return;
+    }
+
+    function setOpen(open){
+      toggle.classList.toggle('is-open', open);
+      nav.classList.toggle('open', open);
+      document.body.classList.toggle('no-scroll', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    // клик по гамбургеру
+    toggle.addEventListener('click', () => {
+      setOpen(!toggle.classList.contains('is-open'));
+    });
+
+    // клик по ссылке в меню — закрыть
+    nav.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setOpen(false);
+    });
+
+    // при ресайзе на десктоп — закрыть
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) setOpen(false);
+    });
+
+    // эффект «is-scrolled»
+    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 4);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Ждём DOM, чтобы элементы точно существовали
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNav);
+  } else {
+    initNav();
+  }
+})();
+</script>
+
 <body data-spy="scroll" class="custom-scrollbar">
     
     <!-- ******HEADER****** --> 
-    <header id="header" class="header">  
-        <div class="container">            
-            <h1 class="logo pull-left">
-                <a class="scrollto" href="index.html">
-                    <span class="logo-title">TinyMadness</span>
-                </a>
-            </h1><!--//logo-->              
-            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button><!--//nav-toggle-->
-                </div><!--//navbar-header-->            
-                <div class="navbar-collapse collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active nav-item sr-only"><a class="scrollto" href="tinymadness.html">Home</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH">Дискорд сервер</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial">Канал на ютубе</a></li>
-                        <li class="nav-item"><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
-                    </ul><!--//nav-->
-                </div><!--//navabr-collapse-->
-            </nav><!--//main-nav-->
-        </div>
-    </header><!--//header-->
+<header id="header" class="header nav-glass">
+  <div class="container nav-shell">
+    <a class="brand scrollto" href="index.html">TinyMadness</a>
+
+    <!-- гамбургер -->
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- навигация -->
+    <nav id="site-nav" class="nav-area" role="navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
+        <li class="nav-item"><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial" data-lang="youtube">YouTube канал</a></li>
+        <li class="nav-item"><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
+      </ul>
+
+      <!-- переключатель языка -->
+    </nav>
+  </div>
+</header>
 
     <section class="download-section">
     

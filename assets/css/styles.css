@@ -1,3 +1,100 @@
+:root{
+    --accent:#c72d1c;      /* алый */
+  --accent2:#ff5330;     /* тёплый красно-оранжевый */
+}
+
+.nav-glass{
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.header.is-scrolled{
+  background:#000;
+  border-color: rgba(255,255,255,.12);
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+}
+.nav-shell{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.brand{
+  font-family: 'Lato', arial, sans-serif;
+
+  color:#fff; font-weight:800; letter-spacing:.5px; text-transform:uppercase;
+  text-decoration:none;
+}
+
+/* ссылки */
+.nav-area{ display:flex; align-items:center; gap:28px; }
+.nav-list{ display:flex; gap:24px; margin:0; padding:0; list-style:none; }
+.nav-list a,
+.nav-list a:link,
+.nav-list a:visited{
+  position: relative;
+  font-weight:700;
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  padding: 12px 2px 10px;                /* добавили нижний паддинг под линию */
+  color: #d6d6d6;
+  text-decoration: none;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible,
+.nav-list a:active{
+  color: #fff;                           /* перекрываем глобальный a:hover { color:#000 } */
+  text-decoration: none;
+}
+
+.nav-list a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 2px;                           /* линия ниже текста; можно 0..4px под свой line-height */
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .25s ease;
+  pointer-events: none;
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus-visible::after,
+.nav-list a[aria-current="page"]::after{
+  transform: scaleX(1);
+}
+
+
+/* RU/EN pill */
+.lang-switch{
+  display:flex; gap:6px; padding:4px; border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+}
+.lang-btn{
+  padding:6px 12px; border-radius:999px; font-weight:800; letter-spacing:.3px;
+  color:#d6d6d6; text-decoration:none;
+}
+.lang-btn.is-active{
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+}
+
+/* гамбургер */
+.nav-toggle{
+  display:none; position:relative; width:38px; height:38px; border:0; background:transparent; cursor:pointer;
+}
+.nav-toggle span{
+  position:absolute; left:8px; right:8px; height:2px; background:#fff; transition:transform .3s, top .3s, opacity .3s;
+}
+.nav-toggle span:nth-child(1){ top:12px; }
+.nav-toggle span:nth-child(2){ top:18px; }
+.nav-toggle span:nth-child(3){ top:24px; }
+.nav-toggle.is-open span:nth-child(1){ top:18px; transform:rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2){ opacity:0; }
+.nav-toggle.is-open span:nth-child(3){ top:18px; transform:rotate(-45deg); }
+
 
 /* ======= Base ======= */
 body {
@@ -481,18 +578,6 @@ pre code {
 
 /* ======= Promo Section ======= */
 
-.border-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100; /* Поверх всего контента */
-  border-width: 80px; /* Толщина рамки */
-  border-style: solid;
-  border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round; /* Изображение рамки */
-  pointer-events: none; /* Не блокировать взаимодействие с контентом */
-}
 
 .corner-button {
   position: absolute;    
@@ -770,22 +855,7 @@ pre code {
 .promo .meta a:hover {
   color: #1b60c9;
 }
-.promo .social-media {
-  background: #2a7dfa;
-  padding: 10px 0;
-  margin: 0 auto;
-  animation: levitate 2s infinite alternate;
-}
-.promo .social-media li {
-  margin-top: 15px;
-  animation: levitate 2s infinite alternate;
-}
-.promo .social-media li.facebook-like {
-  margin-top: 0;
-  position: relative;
-  top: -5px;
-  animation: levitate 2s infinite alternate;
-}
+
 
 .bg-video {
   position: absolute;
@@ -856,130 +926,6 @@ pre code {
   #about { border-width: 25px; }
 }
 
-
-.progress-bar-item {
-  display: flex;
-  flex-direction: column; /* Столбик для заголовка сверху */
-  gap: 10px; /* Отступ между заголовком и прогресс-баром */
-  margin-bottom: 30px; /* Отступ между блоками прогресс-баров */
-}
-
-.progress-bar-progress-text {
-  align-self: flex-end; /* Выравнивание справа */
-  margin-top: -60px; /* Поднятие текста на уровень прогресс-бара */
-  margin-right: 10px;
-  color: #2b95f8;
-  font-family: 'Source Serif 4', sans-serif;
-  font-size: 20px;
-}
-
-/* Progress Bar Styles */
-.progress-bar-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.progress-bar-title {
-  font-family: 'Source Serif 4', sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-  margin: 0;
-  color: #1d7ce9; /* Цвет текста */
-}
-
-.progress-bar-progress {
-  font-family: 'Source Serif 4', sans-serif;
-  font-size: 25px;
-  margin-left: 20px;
-  color: #ffffff;
-}
-
-
-.progress-bar-wrapper {
-  position: relative;
-  width: 100%;
-  height: 70px;
-  flex-grow: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(38, 48, 83);
-  -webkit-mask-image: url('https://tinymadness.online/assets/images/mask-line.svg');
-  mask-image: url('https://tinymadness.online/assets/images/mask-line.svg');
-  mask-repeat: no-repeat;
-  mask-size: 100% 7%;
-  overflow: hidden;
-}
-
-.progress-bar-mask {
-  position: absolute; /* Абсолютное позиционирование */
-  top: 0;
-  left: 0;
-  width: var(--progress); /* Динамическая ширина */
-  height: 100%;
-  background-color: #2271d8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  mask-image: linear-gradient(to right, black 50%, transparent 100%);
-}
-
-/* Right-side Image with Mask */
-.masked-image {
-  width: 140%;
-  height: 700px;
-  margin: 0 auto;
-  mask-image: url('https://tinymadness.online/assets/images/mask-block-2.svg');
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  object-fit: cover;
-  display: block;
-}
-
-.masked-image .red {
-  filter: url(#alphaRed);
-  mix-blend-mode: lighten;
-}
-.masked-image .green {
-  filter: url(#alphaGreen);
-  mix-blend-mode: lighten;
-}
-.masked-image .blue {
-  filter: url(#alphaBlue);
-  mix-blend-mode: lighten;
-}
-
-.masked-image:hover {
-  --time: 0.3s;
-}
-
-.masked-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (max-width: 1200px) {
-  .masked-image {
-    width: 100%;
-    height: 600px;
-    max-width: 120%;
-  }
-}
-
-/* For smaller screens (e.g., tablets) */
-@media (max-width: 768px) {
-  .masked-image {
-    width: 100%;
-    height: auto;
-    max-height: 500px; /* Ограничение по высоте */
-    margin-top: 10px;
-  }
-}
-
 @media (max-width: 768px) {
   #about .about-title {
     font-size: 48px;
@@ -989,15 +935,6 @@ pre code {
   }
 }
 
-/* For very small screens (mobile devices) */
-@media (max-width: 480px) {
-  .masked-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* Дополнительное ограничение для мобильных устройств */
-    margin-top: 5px;
-  }
-}
 
 @media (max-width: 480px) {
   #about {
@@ -1012,62 +949,6 @@ pre code {
   }
 }
 
-
-#games {
-  justify-content: center;
-  background-color: #080d18;
-  border-width: 150px; /* Толщина рамки */
-  border-style: solid;
-  border-color: #05afe7;
-  border-image: url('https://tinymadness.online/assets/images/mask-frame.png') 100 round;
-}
-
-#games .title {
-  font-size: 140px;
-  margin-bottom: 30px;
-  color: rgb(247, 64, 31);
-  font-family: 'Source Serif 4', sans-serif;
-  font-weight: bold;
-  justify-self: center;
-}
-
-#games .description {
-  font-size: 35px;
-  margin-bottom: 25px;
-  font-family: 'Source Serif 4', sans-serif;
-}
-
-/* Game container styles */
-.game-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* Добавлено для поддержки переноса элементов на меньших экранах */
-  gap: 20px; /* Отступ между блоками */
-  transition: gap 0.3s ease-in-out;
-}
-
-.game {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.game-title {
-  font-size: 50px;
-  font-family: 'Source Serif 4', sans-serif;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: rgb(247, 64, 31);
-  transition: transform 0.3s ease-in-out;
-}
-
-.game-desc {
-  font-size: 25px;
-  font-family: 'Source Serif 4', sans-serif;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease-in-out;
-}
 
 .image-container {
   position: relative;
@@ -1139,75 +1020,9 @@ pre code {
 }
 
 
-/* ======= New Section ======= */
-.video-section {
-  padding: 50px 0;
-  -webkit-mask-image: url('https://tinymadness.online/assets/images/bgmask.svg');
-  mask-image: url('https://tinymadness.online/assets/images/bgmask.svg');
-  mask-size: cover;
-  mask-position: center;
-  background-image: url('https://i.postimg.cc/xqr995Nf/characters-bkg-8e9ca504.jpg');
-  background-color: #2a7dfa;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  color: #000000;
-  z-index: 2;
-  position: relative;
-  top: -35px;
-}
-
-.video-section .container {
-  animation: slideLeft 1s cubic-bezier(0.67, -0.14, 0, 1.72) forwards; 
-}
-
-.video-section h2.title {
-  color: #000000;
-  font-size: 50px;
-}
-
-.video-section p.sub-titledesc {
-  margin-bottom: 30px;
-
-  font-size: 30px;
-}
 
 .embed-responsive {
   margin-top: 10px;
-}
-
-
-.square {
-  width: 100%;
-  height: 180px; /* Выберите желаемую высоту квадратов */
-  background-color: #071727; /* Цвет фона */
-  border-radius: 10px; /* Закругление углов */
-  padding: 20px; /* Отступы внутри квадрата */
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
-  margin-bottom: 20px;
-}
-
-.square:hover {
-  transform: scale(1.05); /* Масштабирование при наведении */
-}
-
-.square h3 {
-  margin-top: 0;
-  font-size: 24px; /* Размер шрифта для заголовка */
-}
-
-.square p {
-  font-size: 16px; /* Размер шрифта для текста */
-}
-
-.plotpercent {
-  font-size: 19px !important;
-  color: #f8545d;
 }
 
 .green {
@@ -1281,13 +1096,73 @@ pre code {
 }
 
 @media (max-width: 900px) {
-  .header .main-nav button {
-    margin-right: 0;
+
+.header .container.nav-shell{
+    max-width:100%;
+    width:100%;
+    padding:0 16px;
   }
-  .header .main-nav .navbar-collapse {
-    padding-left: 15px;
-    padding-right: 15px;
+
+  /* вместо grid — flex */
+  .nav-shell{
+    display:flex !important;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
   }
+
+  .brand{
+    order:0;
+    margin:-40px;
+    text-align:left;
+  }
+
+  .nav-toggle{
+    order:1;
+    margin-left:auto;   /* прижимает к правому краю */
+    margin-right:4px;
+  }
+
+  .nav-glass{
+    background:#0b0b0b !important;
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-toggle{ display:block; }
+   .nav-area{
+   position: fixed;
+    inset: 0;
+    top: 39px;                 /* ниже шапки */
+    background: rgba(0,0,0,.92);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    z-index: 99998;
+
+    /* закрыто по умолчанию */
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: transform .28s ease, opacity .28s ease, visibility 0s linear .28s;
+  }
+  .nav-area.open{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:transform .28s ease, opacity .28s ease;
+  }
+
+  .nav-list{ flex-direction: column; gap: 12px; }
+  .nav-list a{ font-size: 20px; padding: 10px 0; }
+  .lang-switch{ width: 100%; justify-content: space-between; }
+
 
   .stack span {
     font-size: 4rem;
@@ -1372,30 +1247,170 @@ pre code {
   }
 }
 
-.news-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.brand,
+.brand:link,
+.brand:visited{
+  color:#fff;
+  text-decoration:none;
+}
+.brand:hover,
+.brand:focus,
+.brand:active{
+  color:#fff;              /* остаётся белым */
+  text-decoration:none;    /* без underline */
 }
 
-.news-section {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 20px;
+/* RU/EN pill */
+.lang-switch .lang-btn,
+.lang-switch .lang-btn:link,
+.lang-switch .lang-btn:visited{
+  color:#d6d6d6;
+  text-decoration:none;
+}
+.lang-switch .lang-btn:hover,
+.lang-switch .lang-btn:focus,
+.lang-switch .lang-btn:active{
+  color:#d6d6d6;           /* не чернеет */
+  text-decoration:none;    /* без underline */
 }
 
-.news-title {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
+/* Активная кнопка RU/EN — контрастный текст */
+.lang-switch .lang-btn.is-active{
+  background: linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;
+}
+.lang-switch .lang-btn.is-active:hover,
+.lang-switch .lang-btn.is-active:focus,
+.lang-switch .lang-btn.is-active:active{
+  color:#fff;
+  text-decoration:none;
 }
 
-.news-text {
-  font-size: 16px;
-  color: #666;
+/* (необязательно) фокус-обводка для доступности */
+.lang-switch .lang-btn:focus-visible,
+.brand:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5,175,231,.35);
+  border-radius: 6px;
 }
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
+
+#games {
+  background-color:#080d18;
+  border-width:150px;
+  border-style:solid;
+  border-color:#05afe7;
+  border-image:url('https://tinymadness.online/assets/images/mask-frame.png') 100 round;
+}
+
+#games .title{
+  font-size:120px;
+  margin-bottom:12px;
+  color:var(--accent);
+  font-family:'Source Serif 4',sans-serif;
+  font-weight:800;
+}
+#games .description{
+  font-size:22px;
+  color:#a7a7a7;
+  margin-bottom:32px;
+  font-family:'Source Serif 4',sans-serif;
+}
+
+/* grid */
+.games-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+/* card */
+.game-card{
+  background:#0b1222;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.game-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+  border-color:rgba(255,255,255,.16);
+}
+
+/* cover */
+.game-cover{
+  position:relative;
+  display:block;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#06101e;
+}
+.game-cover img{
+  width:100%; height:100%; object-fit:cover;
+  transform:scale(1.02);
+  transition:transform .4s ease, filter .4s ease;
+}
+.game-card:hover .game-cover img{ transform:scale(1.08); }
+
+/* gradient gloss */
+.game-cover::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
+  pointer-events:none;
+}
+
+/* badge */
+.game-badge{
+  position:absolute; left:16px; bottom:14px;
+  padding:8px 12px; border-radius:999px;
+  font-weight:800; letter-spacing:.2px;
+  font-family:'Source Serif 4',sans-serif;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  backdrop-filter:saturate(140%) blur(2px);
+}
+.badge--ok{
+  background:linear-gradient(90deg,#2ecc71,#27ae60);
+  border-color:rgba(255,255,255,.18);
+}
+.badge--vo{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-color:rgba(255,255,255,.2);
+}
+
+/* text */
+.game-body{ padding:16px 18px 18px; }
+.game-title{
+  margin:0 0 8px 0;
+  font-family:'Source Serif 4',sans-serif;
+  font-weight:800;
+  font-size:28px;
+  color:#fff;
+}
+.game-desc{
+  margin:0;
+  color:#bfc8d9;
+  font-size:16px;
+  line-height:1.6;
+  font-family:'Source Serif 4',sans-serif;
+}
+
+/* responsive tweaks */
+@media (max-width:1200px){
+  #games { border-width:80px; }
+  #games .title{ font-size:84px; }
+}
+@media (max-width:900px){
+  #games { border-width:50px; }
+}
+@media (max-width:480px){
+  #games { border-width:25px; }
+  #games .title{ font-size:48px; }
+  #games .description{ font-size:18px; }
+}

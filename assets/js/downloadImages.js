@@ -1,30 +1,35 @@
+// downloadImages.js
 ;(function($){
   $(function() {
 
-    function addDownloadImage(imageUrl, linkUrl, title = 'Скачать', isLocked = false) {
-      const displayTitle = isLocked ? 'Недоступно' : title;
+    function addDownloadImage(imageUrl, linkUrl, title = 'Download', isLocked = false) {
+      const displayTitle = isLocked ? 'Locked' : title;
 
-      const $wrapper = $('<div>')
-        .addClass('download-image-wrapper')
+      // 1) карточка как у #games
+      const $wrapper = $('<article>')
+        .addClass('game-card download-card')       // <— общий стиль игры + наш флаг
         .toggleClass('locked', Boolean(isLocked));
 
-      const $link = $('<a>');
+      // 2) кликабельная обложка
+      const $link = $('<a>').addClass('game-cover');
       if (!isLocked) {
-        $link.attr({ href: linkUrl, target: '_blank' });
+        $link.attr({ href: linkUrl, target: '_blank', rel: 'noopener' });
       }
 
+      // 3) фон-картинка с глитчом
       const $img = $('<div>')
-        .addClass('download-image')
+        .addClass('download-image')                // <— на нём псевдоэлементы ::before/::after (glitch)
         .attr('data-image', imageUrl)
         .css('background-image', `url('${imageUrl}')`);
 
-      const $overlay = $('<div>')
-        .addClass('text-overlay')
-        .append(
-          $('<p>').addClass('title').text(displayTitle)
-        );
+      // 4) бейдж как у #games (цвета — как translated/vo)
+      const $badge = $('<span>')
+        .addClass('game-badge')
+        .addClass(isLocked ? 'badge--vo' : 'badge--ok')
+        .text(displayTitle);
 
-      $link.append($img, $overlay);
+      // сборка
+      $link.append($img, $badge);
       $wrapper.append($link);
       $('.download-section').append($wrapper);
     }
@@ -43,9 +48,13 @@
     addDownloadImage(
       'https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png',
       'https://drive.google.com/drive/folders/11U_q2lq9MKUWS_OWG_0v4cHLWXOG_Poe?usp=sharing',
-      'Старая версия',
+      'Old version', false
     );
-    
+   addDownloadImage(
+      '',
+      '',
+      'Full localization', true
+    );
 
   });
 })(jQuery);
