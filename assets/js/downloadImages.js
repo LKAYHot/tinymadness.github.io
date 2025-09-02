@@ -28,6 +28,14 @@
         .addClass(isLocked ? 'badge--vo' : 'badge--ok')
         .text(displayTitle);
 
+        if (isLocked) {
+  $link.append(
+    $('<div>').addClass('lock-veil'),
+    $('<div>').addClass('lock-strap').append($('<span>').text('НЕ ДОСТУПНО')),
+    $('<div>').addClass('lock-sigil')
+  );
+}
+
       // сборка
       $link.append($img, $badge);
       $wrapper.append($link);
@@ -51,7 +59,7 @@
       'Old version', false
     );
    addDownloadImage(
-      '',
+      'https://i.playground.ru/p/QybawNNEeUglN8wU88tIrw.webp',
       '',
       'Full localization', true
     );

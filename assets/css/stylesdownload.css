@@ -1,5 +1,3 @@
-
-
 /* ---------- CSS Vars ---------- */
 :root{
   --accent: #c72d1c;         /* алый */
@@ -14,6 +12,32 @@
   /* Диапазон ширин карточки/колонки */
   --card-min: 700px;         /* можно 420–520 по вкусу */
   --card-max: 720px;         /* «крышка», чтобы не раздувались */
+
+  /* Сканлайны + шум */
+  --scanlines-opacity: .2;
+  --scanlines-thickness: 3px;
+  --scanlines-gap: 2px;
+  --scanlines-speed: 5s;
+  --noise-opacity: .07;
+
+  /* RGB-сдвиг клон-слоёв (на самой картинке) */
+  --rgb-opacity: .12;
+  --rgb-amp-x: 14px;
+  --rgb-amp-y: 14px;
+  --rgb-period: 4s;
+  --rgb-period-hover: 1s;
+
+  /* Глитч-срезы (режут саму обложку) */
+  --glitch-slice-opacity: 0.1;
+  --glitch-period: 6s;
+  --glitch-period-hover: 2s;
+  --glitch-shift: 50px;         /* базовый сдвиг срезов */
+  --glitch-shift-hover: 90px;   /* сдвиг при hover */
+  --glitch-tilt: .35deg;        /* лёгкий наклон срезов */
+
+  /* Джиттер всей карточки */
+  --jitter-scale: 1.003;
+  --jitter-rot: .25deg;
 }
 
 /* ---------- Base ---------- */
@@ -31,7 +55,7 @@ body{
 h1,h2,h3,h4,h5,h6{
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #020303; /* заголовки внутри светлых блоков */
+  color: #020303;
 }
 
 a{
@@ -60,12 +84,11 @@ a:hover{
   position: fixed; inset: 0 auto auto 0; width: 100%;
   z-index: 99999;
   padding: 10px 20px;
-  background: #000; /* стартовый фон; далее модифицируется классами ниже */
+  background: #000;
   color: #fff;
   opacity: 0; animation: fadeIn 1s cubic-bezier(0.67,-0.14,0,1.72) forwards;
 }
 
-/* стекло + состояние скролла */
 .nav-glass{
   background: rgba(0,0,0,.35);
   backdrop-filter: blur(10px);
@@ -78,7 +101,6 @@ a:hover{
   box-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 
-/* сетка хедера */
 .nav-shell{
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
@@ -109,12 +131,10 @@ a:hover{
   color: #d6d6d6; text-decoration: none;
   -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none;
 }
-/* перекрываем глобальный a:hover { color:#000 } */
 .nav-item > a:hover,
 .nav-item > a:focus-visible,
 .nav-item > a:active{ color:#fff; text-decoration:none; }
 
-/* подчёркивающая линия */
 .nav-item > a::after{
   content:"";
   position:absolute; left:0; right:0; bottom:2px; height:2px; border-radius:2px;
@@ -129,20 +149,18 @@ a:hover{
   transform: scaleX(1);
 }
 
-/* язык-переключатель (если используется) */
 .lang-switch{
   display:flex; gap:6px; padding:4px; border:1px solid rgba(255,255,255,.12);
   border-radius: 999px;
 }
 .lang-btn{
   padding:6px 12px; border-radius:999px; font-weight:800; letter-spacing:.3px;
-  color:#d6d6d6; text-decoration:none;
+  color: #d6d6d6; text-decoration:none;
 }
 .lang-btn.is-active{
   background: linear-gradient(90deg, var(--accent), var(--accent2)); color:#fff;
 }
 
-/* гамбургер */
 .nav-toggle{
   display:none; position:relative; width:38px; height:38px; border:0; background:transparent; cursor:pointer;
 }
@@ -157,10 +175,8 @@ a:hover{
 .nav-toggle.is-open span:nth-child(2){ opacity:0; }
 .nav-toggle.is-open span:nth-child(3){ top:18px; transform:rotate(-45deg); }
 
-/* блокировка прокрутки при открытом меню */
 body.no-scroll{ overflow: hidden; }
 
-/* мобилка */
 @media (max-width:900px){
   .header .container.nav-shell{ max-width:100%; width:100%; padding:0 16px; }
   .nav-shell{ display:flex !important; align-items:center; justify-content:space-between; gap:12px; }
@@ -207,7 +223,6 @@ body:has(.download-section)::before{
 /* =============================================================================
    DOWNLOAD SECTION — только обложка + бейдж, без нижнего блока
    ============================================================================= */
-
 .download-section{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--card-min)), var(--card-max)));
@@ -229,14 +244,13 @@ body:has(.download-section)::before{
   border-radius: var(--dl-card-radius);
   padding: 0;
   margin: 0;
-
-  width: 100%; 
+  width: 100%;
 }
 
-/* показываем только обложку внутри карточки */
+/* показываем только обложку */
 .game-card.download-card > *:not(.game-cover){ display: none !important; }
 
-/* обложка — это и есть плитка */
+/* плитка-обложка */
 .game-card.download-card .game-cover{
   position: relative;
   display: block;
@@ -246,14 +260,43 @@ body:has(.download-section)::before{
   border-radius: var(--dl-card-radius);
   box-shadow: 0 12px 28px rgba(0,0,0,.35);
   background: #06101e;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
+  will-change: transform, box-shadow;
 }
+
+/* сканлайны + шум поверх КОНТЕНТА, но ниже бейджа/глянца */
+.game-card.download-card .game-cover::before{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  z-index:2;
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,var(--scanlines-opacity)) 0 var(--scanlines-thickness),
+      rgba(0,0,0,0) var(--scanlines-thickness) calc(var(--scanlines-thickness) + var(--scanlines-gap))
+    ),
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,var(--noise-opacity)) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,var(--noise-opacity)) 0 1px, transparent 2px),
+    radial-gradient(circle at 55% 20%, rgba(255,255,255,var(--noise-opacity)) 0 1px, transparent 2px);
+  background-size:
+    100% calc(var(--scanlines-thickness) + var(--scanlines-gap)),
+    200px 200px, 240px 240px, 180px 180px;
+  background-repeat: repeat, repeat, repeat, repeat;
+  animation:
+    scanlines var(--scanlines-speed) linear infinite,
+    noiseShift 9s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+/* лёгкий подъём+тень + джиттер всей карточки */
 .game-card.download-card:hover .game-cover{
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0,0,0,.42);
+  animation: cardJitter 2.6s steps(24,end) infinite;
 }
 
-/* само изображение */
+/* само изображение (БАЗОВЫЙ слой) */
 .game-card.download-card .download-image{
   position: relative;
   width: 100%;
@@ -262,9 +305,54 @@ body:has(.download-section)::before{
   background-position: center;
   transform: scale(1.02);
   transition: transform .35s ease, filter .35s ease;
-  z-index: 1;
+  z-index: 1; /* ниже клонов и сканлайнов */
+  will-change: transform, filter;
 }
-.game-card.download-card:hover .download-image{ transform: scale(1.065); }
+.game-card.download-card:hover .download-image{
+  transform: scale(1.065);
+}
+
+/* =============== КЛОНОВАННЫЕ СЛОИ ИЗ САМОЙ КАРТИНКИ =============== */
+/* Эти слои используют ТУ ЖЕ обложку, а не абстрактный оверлей */
+.game-card.download-card .download-image::before,
+.game-card.download-card .download-image::after{
+  content:"";
+  position:absolute; inset:0;
+  z-index:2; /* над базовой картинкой, под глянцем/бейджом */
+  pointer-events:none;
+  background: inherit;                 /* ключ: копируем фон родителя */
+  background-position: inherit;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  will-change: transform, opacity, clip-path, filter;
+  opacity: var(--rgb-opacity);
+  mix-blend-mode: normal;              /* взаимодействует как «настоящая» картинка */
+  filter: saturate(1.15) contrast(1.05);
+}
+
+/* Левый клон (слегка в мадженту, со своими срезами) */
+.game-card.download-card .download-image::before{
+  animation:
+    rgbShift var(--rgb-period) steps(2,end) infinite,
+    glitchSlicesA var(--glitch-period) steps(1,end) infinite;
+  filter: saturate(1.3) hue-rotate(-10deg);
+}
+
+/* Правый клон (слегка в циан, другая маска) */
+.game-card.download-card .download-image::after{
+  animation:
+    rgbShift var(--rgb-period) steps(2,end) infinite reverse,
+    glitchSlicesB var(--glitch-period) steps(1,end) infinite;
+  filter: saturate(1.3) hue-rotate(12deg);
+}
+
+/* Усиление при hover: чаще/сильнее */
+.game-card.download-card:hover .download-image::before,
+.game-card.download-card:hover .download-image::after{
+  animation-duration: var(--rgb-period-hover), var(--glitch-period-hover);
+  opacity: calc(var(--rgb-opacity) + .06);
+  transform: translate3d(0,0,0);
+}
 
 /* глянец сверху */
 .game-card.download-card .game-cover::after{
@@ -272,7 +360,7 @@ body:has(.download-section)::before{
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.45) 100%);
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* бейдж статуса */
@@ -287,7 +375,7 @@ body:has(.download-section)::before{
   border: 1px solid rgba(255,255,255,.14);
   background: rgba(0,0,0,.55);
   backdrop-filter: saturate(140%) blur(2px);
-  z-index: 3;
+  z-index: 4;
 }
 .game-card.download-card .badge--ok{
   background: linear-gradient(90deg, #2ecc71, #27ae60);
@@ -295,6 +383,7 @@ body:has(.download-section)::before{
 }
 .game-card.download-card .badge--vo{
   background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
   border-color: rgba(255,255,255,.2);
 }
 
@@ -302,35 +391,85 @@ body:has(.download-section)::before{
 .game-card.download-card.locked .download-image{ filter: blur(3px); }
 .game-card.download-card.locked a{ pointer-events: none; cursor: default; }
 
-/* glitch-эффект поверх изображения */
-.game-card.download-card .download-image::before,
-.game-card.download-card .download-image::after{
-  content:"";
-  position: absolute; inset: 0;
-  background: inherit;                 /* то же изображение */
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: 1;                          /* под глянцем и бейджем */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(255,255,255,0.2) 0px,
-    rgba(255,255,255,0.2) 3px,
-    transparent 4px,
-    transparent 8px
-  );
+/* ===================== АНИМАЦИИ ===================== */
+@keyframes scanlines{
+  from { background-position: 0 0, 0 0, 0 0, 0 0; }
+  to   { background-position: 0 100%, 80px 120px, -60px 90px, 120px -80px; }
 }
-.game-card.download-card .download-image::before{
-  transform: translate(-50px,-50px);
-  opacity: .9; background-color: rgba(255,0,0,.30);
-  clip-path: inset(10% 0 20% 0);
-  animation: glitch 0.08s infinite;
+
+@keyframes noiseShift{
+  0%{   filter: none; }
+  50%{  filter: brightness(1.04) contrast(1.02); }
+  100%{ filter: none; }
 }
-.game-card.download-card .download-image::after{
-  transform: translate(15px,15px);
-  opacity: .9; background-color: rgba(0,0,255,.30);
-  clip-path: inset(20% 0 10% 0);
-  animation: glitch 0.08s infinite alternate;
+
+/* джиттер всей карточки (еле заметный) */
+@keyframes cardJitter{
+  0%{ transform: translateY(-4px) rotate(0deg) scale(1); }
+  25%{ transform: translateY(-4px) rotate(var(--jitter-rot)) scale(var(--jitter-scale)); }
+  50%{ transform: translateY(-4px) rotate(calc(var(--jitter-rot) * -1)) scale(1); }
+  75%{ transform: translateY(-4px) rotate(0deg) scale(var(--jitter-scale)); }
+  100%{ transform: translateY(-4px) rotate(0deg) scale(1); }
 }
+
+/* RGB-рывки клонов */
+@keyframes rgbShift{
+  0%, 12%, 100% { transform: translate(0,0); }
+  13%           { transform: translate(var(--rgb-amp-x), 0); }
+  14%           { transform: translate(calc(-1 * var(--rgb-amp-x)), 0); }
+  15%, 58%      { transform: translate(0,0); }
+  59%           { transform: translate(0, var(--rgb-amp-y)); }
+  60%           { transform: translate(0, calc(-1 * var(--rgb-amp-y))); }
+  61%, 99%      { transform: translate(0,0); }
+}
+
+/* Срезы A (множество полос, толчки и наклон) */
+@keyframes glitchSlicesA{
+  0%   {
+    clip-path:
+      polygon(0 0,100% 0,100% 15%,0 15%,
+              0 22%,100% 22%,100% 30%,0 30%,
+              0 44%,100% 44%,100% 50%,0 50%,
+              0 68%,100% 68%,100% 74%,0 74%,
+              0 82%,100% 82%,100% 100%,0 100%);
+    opacity:0; transform: translate(0,0) rotate(0);
+  }
+  9%   { opacity: var(--glitch-slice-opacity);
+         transform: translate(var(--glitch-shift), 0) rotate(var(--glitch-tilt)); }
+  10%  { transform: translate(calc(var(--glitch-shift) * -1), 0) rotate(calc(var(--glitch-tilt) * -1)); }
+  12%  { opacity:0; transform: translate(0,0) rotate(0); }
+  40%  { opacity:0; }
+  41%  { opacity: var(--glitch-slice-opacity);
+         transform: translate(0, calc(var(--glitch-shift) * .45)) rotate(var(--glitch-tilt)); }
+  43%  { transform: translate(0, calc(var(--glitch-shift) * -.45)) rotate(calc(var(--glitch-tilt) * -1)); }
+  45%  { opacity:0; transform: translate(0,0) rotate(0); }
+  100% { opacity:0; }
+}
+
+/* Срезы B (другая маска, смещённые тайминги) */
+@keyframes glitchSlicesB{
+  0%   {
+    clip-path:
+      polygon(0 0,100% 0,100% 10%,0 10%,
+              0 28%,100% 28%,100% 34%,0 34%,
+              0 52%,100% 52%,100% 58%,0 58%,
+              0 72%,100% 72%,100% 78%,0 78%,
+              0 86%,100% 86%,100% 100%,0 100%);
+    opacity:0; transform: translate(0,0) rotate(0);
+  }
+  7%   { opacity: var(--glitch-slice-opacity);
+         transform: translate(calc(var(--glitch-shift) * -.6), 0) rotate(calc(var(--glitch-tilt) * -1)); }
+  8.5% { transform: translate(calc(var(--glitch-shift) * .6), 0) rotate(var(--glitch-tilt)); }
+  10%  { opacity:0; transform: translate(0,0) rotate(0); }
+  55%  { opacity:0; }
+  56%  { opacity: var(--glitch-slice-opacity);
+         transform: translate(0, calc(var(--glitch-shift) * .5)) rotate(var(--glitch-tilt)); }
+  58%  { transform: translate(0, calc(var(--glitch-shift) * -.5)) rotate(calc(var(--glitch-tilt) * -1)); }
+  60%  { opacity:0; transform: translate(0,0) rotate(0); }
+  100% { opacity:0; }
+}
+
+/* запасной (не используется, но пусть будет) */
 @keyframes glitch{
   0%{ transform: translate(0,0) }
   15%{ transform: translate(-15px,10px) }
@@ -341,18 +480,30 @@ body:has(.download-section)::before{
   100%{ transform: translate(-20px,10px) }
 }
 
+@media (prefers-reduced-motion: reduce){
+  .game-card.download-card .game-cover,
+  .game-card.download-card .game-cover::before,
+  .game-card.download-card .download-image::before,
+  .game-card.download-card .download-image::after{
+    animation: none !important;
+  }
+  .game-card.download-card:hover .game-cover{ transform: translateY(-4px); }
+  .game-card.download-card .download-image::before,
+  .game-card.download-card .download-image::after{
+    opacity: .06;
+  }
+}
+
 /* ---------- Mobile tweaks ---------- */
 @media (max-width:600px){
   :root{ --header-h: 64px; --dl-gap: 15px; }
-  
-  .download-section{
-    grid-template-columns: 1fr; /* по одной в ряд */
-    gap: 15px;
-  }
+  .download-section{ grid-template-columns: 1fr; gap: 15px; }
   .game-card.download-card{ width: 100%; }
 }
 
-
+/* =============================================================================
+   GAMES рамка и типографика
+   ============================================================================= */
 #games{
   background-color:#080d18;
   border-width:150px;
@@ -385,3 +536,118 @@ body:has(.download-section)::before{
   #games .title{ font-size:48px; }
   #games .description{ font-size:18px; }
 }
+
+/* =======================================================================
+   LOCKED: «замороженная» обложка + лента + сияющий замок
+   ======================================================================= */
+
+/* отключаем ховеры/глитчи и приглушаем картинку */
+.game-card.download-card.locked:hover .game-cover{
+  transform:none;
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+  animation:none;
+}
+.game-card.download-card.locked .download-image{
+  transform:scale(1.02);
+  filter: grayscale(.85) saturate(.6) brightness(.75) contrast(1.08);
+}
+.game-card.download-card.locked .download-image::before,
+.game-card.download-card.locked .download-image::after{
+  /* почти «застывшие» клоны */
+  opacity:.03 !important;
+  animation:none !important;
+}
+
+/* лёгкая виньетка + диагональные штрихи поверх */
+.game-card.download-card.locked .lock-veil{
+  position:absolute; inset:0; pointer-events:none; z-index:5;
+  background:
+    radial-gradient(110% 90% at 50% 55%, rgba(0,0,0,0) 0 60%, rgba(0,0,0,.55) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 14px, rgba(255,255,255,0) 14px 28px);
+  mix-blend-mode:soft-light;
+  animation: lockedNoise 14s linear infinite;
+}
+@keyframes lockedNoise{
+  0%{ filter:none; }
+  50%{ filter:brightness(1.03) contrast(1.02); }
+  100%{ filter:none; }
+}
+
+/* диагональная «лента» LOCKED */
+.game-card.download-card.locked .lock-strap{
+  overflow: hidden;                 /* <— ключ, чтобы блик уезжал за край */
+  position: absolute;
+  left:-22%; right:-22%; top:44%; height:64px; z-index:6;
+  transform:rotate(-12deg);
+  display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.10) 0 28px, rgba(255,255,255,0) 28px 56px);
+  background-size:auto, 220px 100%;
+  border-top:1px solid rgba(255,255,255,.22);
+  border-bottom:1px solid rgba(255,255,255,.22);
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  animation:tapeSlide 9s linear infinite;
+}
+
+.game-card.download-card.locked .lock-strap::after{
+  content:"";
+  position:absolute;
+  top:-35%; bottom:-35%;            /* выше/ниже, чтобы блик выглядел длиннее */
+  width:26%;
+  left:-30%;                         /* стартовая «точка появления» слева за лентой */
+  transform:skewX(-18deg) translateX(-120%);
+  background:linear-gradient(90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,.85) 45%,
+      rgba(255,255,255,0) 100%);
+  mix-blend-mode:screen;
+  filter:blur(1px);
+  will-change: transform, opacity;
+}
+
+
+@keyframes tapeSlide{ to{ background-position:0 0, -440px 0; } }
+
+.game-card.download-card.locked .lock-strap span{
+  font:800 20px 'Montserrat', sans-serif; letter-spacing:4px;
+  color:#fff; text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(0,0,0,.35), 0 0 18px rgba(5,175,231,.35);
+  position:relative;
+}
+.game-card.download-card.locked .lock-strap span::after{
+  /* лёгкий блик по тексту */
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.8), transparent);
+  mix-blend-mode:overlay; transform:skewX(-20deg) translateX(-400%);
+}
+
+/* центральный «замок» с мягким свечением */
+.game-card.download-card.locked .lock-sigil{
+  position:absolute; inset:0; z-index:7; pointer-events:none;
+  display:grid; place-items:center;
+}
+
+@keyframes lockPulse{
+  0%,100%{ transform:scale(1); filter:drop-shadow(0 0 10px rgba(5,175,231,.45)); opacity:.95; }
+  50%{   transform:scale(1.06); filter:drop-shadow(0 0 26px rgba(5,175,231,.8)); opacity:1; }
+}
+
+
+/* бейдж оставляем, но поднимаем поверх ленты */
+.game-card.download-card.locked .game-badge{ z-index:8; }
+
+/* на залоченных ссылку точно отключаем */
+.game-card.download-card.locked a{ pointer-events:none; cursor:default; }
+
+.game-card.download-card.locked .lock-sigil::before{
+  content:""; width:96px; height:96px;
+  background: radial-gradient(circle at 50% 30%, #05afe7, #0b6cd4 70%, #003a7a 100%);
+  filter: drop-shadow(0 0 22px rgba(5,175,231,.55));
+  -webkit-mask: url('data:image/svg+xml;utf8,\
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">\
+    <path fill=\"%23000\" d=\"M44 26h-2v-6a10 10 0 10-20 0v6h-2a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V30a4 4 0 00-4-4zM24 20a8 8 0 0116 0v6H24v-6zm8 16a4 4 0 110 8 4 4 0 010-8z\"/>\
+  </svg>') center/contain no-repeat;
+          mask: url('data:image/svg+xml;utf8,') center/contain no-repeat;
+}
+
