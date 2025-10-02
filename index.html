@@ -8,11 +8,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Здесь вы можете найти информацию о TinyMadness, а также узнать статус перевода">
+    <meta name="description" content="Здесь вы можете найти информацию о студии под названием TinyMadness!">
     <meta name="author" content="">    
     <link rel="shortcut icon" href="assets/images/favicon.ico">  
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'> 
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Plugins CSS -->    
@@ -20,11 +20,6 @@
     <link rel="stylesheet" href="assets/plugins/prism/prism.css">
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
@@ -36,214 +31,213 @@
         });
       });
     </script>
-</head> 
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // эффект шапки при скролле
-  const header = document.querySelector('header.header');
-  if (header) {
-    const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.querySelector('header.header');
+      if (header) {
+        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
 
-  // меню
-  const toggle = document.querySelector('.nav-toggle');
-  const nav    = document.getElementById('site-nav');
-  if (toggle && nav) {
-    const closeNav = () => {
-      nav.classList.remove('open');
-      toggle.classList.remove('is-open');
-      document.body.style.overflow = '';
-      toggle.setAttribute('aria-expanded','false');
-    };
-    const openNav = () => {
-      nav.classList.add('open');
-      toggle.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-      toggle.setAttribute('aria-expanded','true');
-    };
+      // меню
+      const toggle = document.querySelector('.nav-toggle');
+      const nav    = document.getElementById('site-nav');
+      if (toggle && nav) {
+        const closeNav = () => {
+          nav.classList.remove('open');
+          toggle.classList.remove('is-open');
+          document.body.style.overflow = '';
+          toggle.setAttribute('aria-expanded','false');
+        };
+        const openNav = () => {
+          nav.classList.add('open');
+          toggle.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          toggle.setAttribute('aria-expanded','true');
+        };
 
-    // по клику
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.contains('open');
-      isOpen ? closeNav() : openNav();
+        toggle.addEventListener('click', () => {
+          const isOpen = nav.classList.contains('open');
+          isOpen ? closeNav() : openNav();
+        });
+
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+        const mq = window.matchMedia('(max-width: 900px)');
+        if (mq.matches) closeNav();
+        mq.addEventListener('change', closeNav);
+      }
     });
-
-    // закрывать по клику на ссылку
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-
-    // на старте и при смене брейкпоинта — закрыть
-    const mq = window.matchMedia('(max-width: 900px)');
-    if (mq.matches) closeNav();
-    mq.addEventListener('change', closeNav);
-  }
-
-  // актив RU/EN
-  const langBtns = document.querySelectorAll('.lang-switch .lang-btn');
-  langBtns.forEach(b => b.addEventListener('click', function () {
-    langBtns.forEach(x => x.classList.remove('is-active'));
-    this.classList.add('is-active');
-  }));
-});
-</script>
+    </script>
+</head> 
 
 <body data-spy="scroll" class="custom-scrollbar">
 
-    <div id="snowflakes"></div>
-    
-    <!-- ******HEADER****** --> 
-   <header id="header" class="header nav-glass">
-  <div class="container nav-shell">
-    <a class="brand scrollto" href="#promo">TinyMadness</a>
+  <div id="snowflakes"></div>
+  
+  <!-- ******HEADER****** --> 
+  <header id="header" class="header nav-glass">
+    <div class="container nav-shell">
+      <a class="brand scrollto" href="#promo">TinyMadness</a>
 
-    <!-- гамбургер -->
-    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+      <!-- гамбургер -->
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <!-- навигация -->
-    <nav id="site-nav" class="nav-area" role="navigation">
-      <ul class="nav-list">
-        <li><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
-        <li><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial" data-lang="youtube">YouTube канал</a></li>
-        <li><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
-      </ul>
+      <!-- навигация -->
+      <nav id="site-nav" class="nav-area" role="navigation">
+        <ul class="nav-list">
+          <li><a class="scrollto" href="https://discord.gg/2TdQkzZgAH" data-lang="discord">Дискорд сервер</a></li>
+          <li><a class="scrollto" href="https://www.youtube.com/@TinyMadnessOfficial" data-lang="youtube">YouTube канал</a></li>
+          <li><a class="scrollto" href="https://t.me/+UFDM78QfnOg5NWQy" data-lang="telegram">Телеграм</a></li>
+        </ul>
 
-      <!-- переключатель языка -->
-      <div class="lang-switch" role="group" aria-label="Язык">
-        <a href="javascript:void(0);" onclick="changeLanguage('ru')" class="lang-btn is-active" data-lang="lang_ru">RU</a>
-        <a href="javascript:void(0);" onclick="changeLanguage('en')" class="lang-btn" data-lang="lang_en">EN</a>
+        <!-- переключатель языка -->
+        <div class="lang-switch" role="group" aria-label="Язык">
+          <a href="javascript:void(0);" onclick="changeLanguage('ru')" class="lang-btn" data-lang="lang_ru" aria-pressed="false">RU</a>
+          <a href="javascript:void(0);" onclick="changeLanguage('en')" class="lang-btn" data-lang="lang_en" aria-pressed="false">EN</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ******PROMO****** -->
+  <section id="promo" class="promo section offset-header">
+    <div class="container text-center">
+      <div class="container-main">
+        <div class="stack" style="--stacks: 3;">
+          <span style="--index: 0;">TINYMADNESS</span>
+          <span style="--index: 1;">TINYMADNESS</span>
+          <span style="--index: 2;">TINYMADNESS</span>
+        </div>
       </div>
-    </nav>
-  </div>
-</header>
+      <p class="intro" data-lang="promo_intro">Нажмите на эту кнопку, чтобы скачать перевод</p>
+      <button class="download-btn" onclick="location.href='download.html'">
+        <span data-lang="download_btn_text">ПЕРЕЙТИ К УСТАНОВКЕ</span>
+      </button>
 
- <!-- <div id="popup" class="popup">
-        <span class="popup-close" onclick="closePopup()">&times;</span>
-        <p>Дискорд сервер может быть временно недоступен. Просим пока перейти в наш телеграм.</p>
+      <button class="corner-button" onclick="location.href='12dkasdk23l2kssalc23kbvkjnsla.html'"></button>
+      <ul class="meta list-inline">
+        <li><a href="" target="_blank"></a></li>
+        <li><a href="" target="_blank"></a></li>
+      </ul>
     </div>
+  </section>
 
-    <script>
+  <!-- ******ABOUT****** -->
+  <section id="about" class="about section offset-header">
+    <div class="container text-center">
+      <h2 class="about-title" data-lang="about_title">О нас</h2>
+      <p class="about-text" data-lang="about_info">
+        TinyMadness — это сообщество энтузиастов-переводчиков, создающее качественные русскоязычные локализации инди-игр. 
+        Наша цель — сделать игры доступными для широкой аудитории, сохраняя атмосферу и стиль оригинального проекта. 
+        Присоединяйтесь к нам в Discord или Telegram, чтобы не пропустить новости и принять участие в работе над переводами!
+      </p>
+    </div>
+  </section>
 
-        document.addEventListener('DOMContentLoaded', function() {
-        const popup = document.querySelector('.popup');
-        setTimeout(() => {
-           popup.classList.add('show');
-           }, 100);
+  <section id="games" class="games section">
+    <div class="container">
+      <h2 class="title text-center" data-lang="games_text">Игры</h2>
+      <p class="description text-center" data-lang="games_trans_text">
+        Игры, которые находятся в переводе у TinyMadness.
+      </p>
+
+      <div class="games-grid">
+        <!-- Card 1 -->
+        <article class="game-card">
+          <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="game-cover" aria-label="LGTS on Steam">
+            <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Little Goody Two Shoes">
+            <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
+          </a>
+          <div class="game-body">
+            <h3 class="game-title">LGTS</h3>
+            <p class="game-desc" data-lang="games_LGTS_trans_desc">
+              Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="game-card">
+          <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="game-cover" aria-label="Unreal Life on Steam">
+            <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="UNREAL LIFE">
+            <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
+          </a>
+          <div class="game-body">
+            <h3 class="game-title">Unreal Life</h3>
+            <p class="game-desc" data-lang="games_UNLIFE_trans_desc">
+              Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="game-card">
+          <a href="https://store.steampowered.com/app/2215390/Five_Nights_at_Freddys_Secret_of_the_Mimic/" class="game-cover" aria-label="FNaF: Secret of the Mimic on Steam">
+            <img src="https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png" alt="FNaF: Secret of the Mimic">
+            <span class="game-badge badge--vo" data-lang="translated_voice">В процессе озвучки</span>
+          </a>
+          <div class="game-body">
+            <h3 class="game-title">Five Nights at Freddy's: Secret of the Mimic</h3>
+            <p class="game-desc" data-lang="games_FNAF_trans_desc">
+              Войдите в заброшенную Мастерскую Костюмов Мюррея и раскройте тайну, оставленную затворником-изобретателем Эдвином Мюрреем. Атмосферный хоррор, где каждый тёмный угол хранит секрет.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="assets/js/languageSwitcher.js"></script>
+  <script type="text/javascript" src="assets/js/snowflakesfunc.js"></script>
+  <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
+  <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
+  <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
+  <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
+  <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+  <script type="text/javascript" src="assets/js/main.js"></script>
+
+  <script>
+  (function(){
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        var lang = (typeof getCookie === 'function' && getCookie('lang')) || 'ru';
+        if (typeof changeLanguage === 'function') {
+          changeLanguage(lang);
+        }
+        setActiveLangButton(lang);
+
+        var btns = document.querySelectorAll('.lang-switch .lang-btn');
+        btns.forEach(function(b){
+          b.addEventListener('click', function(){
+            var l = (this.textContent || '').trim().toLowerCase(); // 'ru' | 'en'
+            setActiveLangButton(l);
+          });
         });
+      } catch(e) {
+        console.warn('Lang init error:', e);
+      }
+    });
 
-    function closePopup() {
-       const popup = document.querySelector('.popup')
-       popup.classList.remove('show');
+    function setActiveLangButton(lang){
+      var ruBtn = document.querySelector('.lang-switch .lang-btn[onclick*="ru"]');
+      var enBtn = document.querySelector('.lang-switch .lang-btn[onclick*="en"]');
+      [ruBtn, enBtn].forEach(function(btn){
+        if (!btn) return;
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-pressed', 'false');
+      });
+      var active = (lang === 'en') ? enBtn : ruBtn;
+      if (active){
+        active.classList.add('is-active');
+        active.setAttribute('aria-pressed', 'true');
+      }
     }
-
-        document.querySelector(".popup-close").addEventListener("click", function() {
-            closePopup();
-        });
-    </script> -->
-    
-    <!-- ******PROMO****** -->
-    <section id="promo" class="promo section offset-header">
-        <div class="container text-center">
-          <!--  <video autoplay muted plays-inline loop class="bg-video">
-                <source src="assets/images/background.mp4" type="video/mp4">
-            </video>  -->
-            <div class="container-main">
-                <div class="stack" style="--stacks: 3;">
-                  <span style="--index: 0;">TINYMADNESS</span>
-                  <span style="--index: 1;">TINYMADNESS</span>
-                  <span style="--index: 2;">TINYMADNESS</span>
-                </div>
-              </div>
-            <p class="intro" data-lang="promo_intro">Нажмите на эту кнопку, чтобы скачать перевод</p>
-            <button class="download-btn" onclick="location.href='download.html'">
-                <span data-lang="download_btn_text">ПЕРЕЙТИ К УСТАНОВКЕ</span>
-              </button>
-
-              <button class="corner-button" onclick="location.href='12dkasdk23l2kssalc23kbvkjnsla.html'"></button>
-            <ul class="meta list-inline">
-                <li><a href="" target="_blank"></a></li>
-                <li><a href="" target="_blank"></a></li>
-            </ul><!--//meta-->
-        </div><!--//container-->
-    </section><!--//promo-->
-
-    <!-- ******ABOUT****** -->
-    <section id="about" class="about section offset-header">
-        <div class="container text-center">
-          <h2 class="about-title" data-lang="about_title">О нас</h2>
-          <p class="about-text" data-lang="about_info">
-            TinyMadness — это сообщество энтузиастов-переводчиков, создающее качественные русскоязычные локализации инди-игр. 
-            Наша цель — сделать игры доступными для широкой аудитории, сохраняя атмосферу и стиль оригинального проекта. 
-            Присоединяйтесь к нам в Discord или Telegram, чтобы не пропустить новости и принять участие в работе над переводами!
-          </p>
-        </div>
-      </section>
-
-<section id="games" class="games section">
-  <div class="container">
-    <h2 class="title text-center" data-lang="games_text">Игры</h2>
-    <p class="description text-center" data-lang="games_trans_text">
-      Игры, которые находятся в переводе у TinyMadness.
-    </p>
-
-    <div class="games-grid">
-      <!-- Card 1 -->
-      <article class="game-card">
-        <a href="https://store.steampowered.com/app/1812370/Little_Goody_Two_Shoes/" class="game-cover" aria-label="LGTS on Steam">
-          <img src="https://fyre.cdn.sewest.net/little-goody-two-shoes/64b9c49daed7bb35a2a83236/cover-1--FNTochu2_.png" alt="Little Goody Two Shoes">
-          <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
-        </a>
-        <div class="game-body">
-          <h3 class="game-title">LGTS</h3>
-          <p class="game-desc" data-lang="games_LGTS_trans_desc">
-            Это сюжетная приключенческая игра в жанре ужаса. Ее действие происходит в сказочном мире, нарисованном вручную. В ней предусмотрено 10 различных концовок, зависящих от ваших действий и решений
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="game-card">
-        <a href="https://store.steampowered.com/app/1335560/UNREAL_LIFE/" class="game-cover" aria-label="Unreal Life on Steam">
-          <img src="https://static.wixstatic.com/media/582447_298cd86bbc4e4724b4509128eacbc06a~mv2.png/v1/fill/w_560,h_316,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/UNREALLIFE_packagetitleB_1080_ja.png" alt="UNREAL LIFE">
-          <span class="game-badge badge--ok" data-lang="translated_status">Переведена</span>
-        </a>
-        <div class="game-body">
-          <h3 class="game-title">Unreal Life</h3>
-          <p class="game-desc" data-lang="games_UNLIFE_trans_desc">
-            Это история путешествия Хару. Сравните воспоминания о прошлом с настоящим, разгадайте тайны и следуйте за девушкой и светофором в этой атмосферной приключенческой игре-головоломке.
-          </p>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="game-card">
-        <a href="https://store.steampowered.com/app/2215390/Five_Nights_at_Freddys_Secret_of_the_Mimic/" class="game-cover" aria-label="FNaF: Secret of the Mimic on Steam">
-          <img src="https://cdn1.epicgames.com/spt-assets/a3843e0de6d545b3957ce2173972092c/five-nights-at-freddys-secret-of-the-mimic-1sy98.png" alt="FNaF: Secret of the Mimic">
-          <span class="game-badge badge--vo" data-lang="translated_voice">В процессе озвучки</span>
-        </a>
-        <div class="game-body">
-          <h3 class="game-title">Five Nights at Freddy's: Secret of the Mimic</h3>
-          <p class="game-desc" data-lang="games_FNAF_trans_desc">
-            Войдите в заброшенную Мастерскую Костюмов Мюррея и раскройте тайну, оставленную затворником-изобретателем Эдвином Мюрреем. Атмосферный хоррор, где каждый тёмный угол хранит секрет.
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<!--//about-->
-    <!-- Javascript -->       
-    
-    <script type="text/javascript" src="assets/js/languageSwitcher.js"></script>
-    <script type="text/javascript" src="assets/js/snowflakesfunc.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>   
-    <script type="text/javascript" src="assets/plugins/jquery.easing.1.3.js"></script>   
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>     
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script> 
-    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-    <script type="text/javascript" src="assets/js/main.js"></script>       
+  })();
+  </script>
 </body>
-</html> 
+</html>
