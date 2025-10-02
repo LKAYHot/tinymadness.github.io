@@ -59,7 +59,7 @@
       'Old version', false
     );
    addDownloadImage(
-      'https://i.playground.ru/p/QybawNNEeUglN8wU88tIrw.webp',
+      'https://i.ibb.co/MkzbZ3LL/sotm-ru-preview-horiz-site.png',
       '',
       'Full localization', true
     );
