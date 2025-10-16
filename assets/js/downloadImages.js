@@ -63,6 +63,11 @@
       '',
       'Full localization', true
     );
+    addDownloadImage(
+      'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3372060/5d0cfa9cbe776fb920c42c1fffe6e4f963f9c90d/capsule_616x353.jpg?t=1760452426',
+      '',
+      'Waiting for translation', true
+    );
 
   });
 })(jQuery);
