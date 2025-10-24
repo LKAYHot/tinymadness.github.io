@@ -58,15 +58,14 @@
       'https://drive.google.com/drive/folders/11U_q2lq9MKUWS_OWG_0v4cHLWXOG_Poe?usp=sharing',
       'Old version', false
     );
+    addDownloadImage(
+      'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3372060/5d0cfa9cbe776fb920c42c1fffe6e4f963f9c90d/capsule_616x353.jpg?t=1760452426',
+      'https://drive.google.com/drive/folders/1FP52iERGUgCPxaHUY6rCf9VwmJe1C9WT?usp=sharing',
+    );
    addDownloadImage(
       'https://i.ibb.co/MkzbZ3LL/sotm-ru-preview-horiz-site.png',
       '',
       'Full localization', true
-    );
-    addDownloadImage(
-      'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3372060/5d0cfa9cbe776fb920c42c1fffe6e4f963f9c90d/capsule_616x353.jpg?t=1760452426',
-      '',
-      'Waiting for translation', true
     );
 
   });
